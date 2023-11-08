@@ -1,6 +1,7 @@
 package com.ppr.model;
 
 import java.sql.Timestamp;
+import java.time.LocalDate;
 
 public abstract class Persona {
     private int idPersona;
@@ -62,6 +63,13 @@ public abstract class Persona {
         this.fechaNacimiento = fechaNacimiento;
     }
 
+    public int calcularEdad() {
+        LocalDate fechaActual = LocalDate.now();
+        LocalDate fechaNacimientoLocal = fechaNacimiento.toLocalDateTime().toLocalDate();
+
+        return fechaNacimientoLocal.until(fechaActual).getYears();
+    }
+
     @Override
     public String toString() {
         return "Persona{" +
@@ -70,6 +78,7 @@ public abstract class Persona {
                 ", nombre='" + nombre + '\'' +
                 ", apellido='" + apellido + '\'' +
                 ", fechaNacimiento=" + fechaNacimiento +
+                ", edad=" + calcularEdad() +
                 '}';
     }
 }
