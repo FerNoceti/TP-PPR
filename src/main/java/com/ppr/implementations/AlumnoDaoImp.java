@@ -64,10 +64,23 @@ public class AlumnoDaoImp implements AlumnoDao {
     @Override
     public void addAlumno(int idPersona) {
         String selectDNIQuery = "SELECT dni FROM personas WHERE id_persona = ?";
+        String checkIfAlumnoExistsQuery = "SELECT COUNT(*) as count FROM alumnos WHERE id_persona = ?";
 
         try {
             ConexionDB conexionDB = new ConexionDB();
             Connection connection = conexionDB.getConnection();
+
+            PreparedStatement checkIfAlumnoExistsStatement = connection.prepareStatement(checkIfAlumnoExistsQuery);
+            checkIfAlumnoExistsStatement.setInt(1, idPersona);
+            ResultSet existsResultSet = checkIfAlumnoExistsStatement.executeQuery();
+
+            if (existsResultSet.next()) {
+                int count = existsResultSet.getInt("count");
+                if (count > 0) {
+                    System.out.println("El id_persona ya está en la tabla de alumnos.");
+                    return;
+                }
+            }
 
             PreparedStatement selectStatement = connection.prepareStatement(selectDNIQuery);
             selectStatement.setInt(1, idPersona);
@@ -102,6 +115,7 @@ public class AlumnoDaoImp implements AlumnoDao {
             System.out.println("Error al agregar el alumno: " + e.getMessage());
         }
     }
+
 
     @Override
     public void updateAlumno(Alumno alumno) {
