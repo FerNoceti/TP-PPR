@@ -16,6 +16,8 @@ public class Main {
             System.out.println(alumno);
         }
 
+        alumnoDaoImp.deleteAlumno(4);
+
 
 
     }

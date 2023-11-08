@@ -103,16 +103,36 @@ public class AlumnoDaoImp implements AlumnoDao {
         }
     }
 
-
-
-
     @Override
     public void updateAlumno(Alumno alumno) {
 
     }
 
     @Override
-    public void deleteAlumno(int id) {
+    public void deleteAlumno(int idAlumno) {
+        String query = "DELETE FROM alumnos WHERE id_alumno = ?";
+
+        try {
+            ConexionDB conexionDB = new ConexionDB();
+            Connection connection = conexionDB.getConnection();
+
+            PreparedStatement statement = connection.prepareStatement(query);
+            statement.setInt(1, idAlumno);
+
+            int rowsAffected = statement.executeUpdate();
+
+            if (rowsAffected > 0) {
+                System.out.println("Alumno eliminado correctamente.");
+            } else {
+                System.out.println("No se pudo eliminar el alumno.");
+            }
+
+            statement.close();
+            conexionDB.closeConnection();
+        } catch (Exception e) {
+            System.out.println("Error al eliminar el alumno: " + e.getMessage());
+        }
+
 
     }
 }
