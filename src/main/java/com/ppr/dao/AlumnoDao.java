@@ -4,7 +4,7 @@ import com.ppr.model.Alumno;
 
 import java.util.List;
 
-public interface AlumnoDAO {
+public interface AlumnoDao {
 
     public List<Alumno> getAllAlumnos();
 

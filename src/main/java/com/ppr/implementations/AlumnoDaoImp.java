@@ -1,6 +1,6 @@
-package com.ppr.daoImp;
+package com.ppr.implementations;
 
-import com.ppr.dao.AlumnoDAO;
+import com.ppr.dao.AlumnoDao;
 import com.ppr.db.ConexionDB;
 import com.ppr.model.Alumno;
 
@@ -8,7 +8,7 @@ import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.List;
 
-public class AlumnoDaoImp implements AlumnoDAO {
+public class AlumnoDaoImp implements AlumnoDao {
 
     private ConexionDB conexionDB;
 
@@ -19,18 +19,15 @@ public class AlumnoDaoImp implements AlumnoDAO {
 
     @Override
     public List<Alumno> getAllAlumnos() {
-        String query = "SELECT * FROM alumnos";
+        String query = "SELECT * FROM personas";
         List<Alumno> alumnos = new ArrayList<>();
         try {
             ResultSet rs = this.conexionDB.runQuery(query);
             if (rs != null) {
                 while (rs.next()) {
                     Alumno alumno = new Alumno();
-                    alumno.setId(rs.getInt("id_alumno"));
                     alumno.setNombre(rs.getString("nombre"));
-                    alumno.setApellido(rs.getString("apellido"));
-                    alumno.setDni(rs.getString("dni"));
-                    alumno.setFechaNacimiento(rs.getDate("fecha_nacimiento"));
+
                     alumnos.add(alumno);
                 }
 
@@ -39,11 +36,12 @@ public class AlumnoDaoImp implements AlumnoDAO {
         } catch (Exception e) {
             System.out.println("Error: " + e.getMessage());
         }
+        return null;
     }
 
     @Override
     public Alumno getAlumno(int id) {
-        String query = "SELECT * FROM alumnos WHERE id_alumno = " + id;
+        return null;
     }
 
     @Override

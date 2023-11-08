@@ -1,7 +1,11 @@
 package com.ppr;
 
+import com.ppr.implementations.AlumnoDaoImp;
+
 public class Main {
     public static void main(String[] args) {
-        System.out.println("Hola");
+        AlumnoDaoImp alumnoDaoImp = new AlumnoDaoImp();
+        System.out.println(alumnoDaoImp.getAllAlumnos().get(0));
+
     }
 }
