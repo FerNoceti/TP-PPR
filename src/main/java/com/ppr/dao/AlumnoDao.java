@@ -10,7 +10,7 @@ public interface AlumnoDao {
 
     public Alumno getAlumno(int id);
 
-    public void addAlumno(Alumno alumno);
+    public void addAlumno(int idPersona);
 
     public void updateAlumno(Alumno alumno);
 

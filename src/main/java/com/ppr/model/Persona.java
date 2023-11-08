@@ -1,19 +1,19 @@
 package com.ppr.model;
 
-import java.util.Date;
+import java.sql.Timestamp;
 
 public abstract class Persona {
     private int idPersona;
     private int dni;
     private String nombre;
     private String apellido;
-    private Date fechaNacimiento;
+    private Timestamp fechaNacimiento;
 
     public Persona() {
         super();
     }
 
-    public Persona(int idPersona, int dni, String nombre, String apellido, Date fechaNacimiento) {
+    public Persona(int idPersona, int dni, String nombre, String apellido, Timestamp fechaNacimiento) {
         super();
         this.idPersona = idPersona;
         this.dni = dni;
@@ -54,11 +54,11 @@ public abstract class Persona {
         this.apellido = apellido.toUpperCase();
     }
 
-    public Date getFechaNacimiento() {
+    public Timestamp getFechaNacimiento() {
         return fechaNacimiento;
     }
 
-    public void setFechaNacimiento(Date fechaNacimiento) {
+    public void setFechaNacimiento(Timestamp fechaNacimiento) {
         this.fechaNacimiento = fechaNacimiento;
     }
 

@@ -1,21 +1,19 @@
 package com.ppr.model;
 
-import java.time.LocalDate;
+import java.sql.Timestamp;
 
 public class Alumno extends Persona {
     private int idAlumno;
-    private int legajo; // Cambiar el tipo de legajo a int
-    private static int contadorAlumnos = 0;
+    private int legajo;
 
     public Alumno() {
         super();
-        this.legajo = generarLegajo();
     }
 
-    public Alumno(int idAlumno) {
-        super();
+    public Alumno(int idPersona, int dni, String nombre, String apellido, Timestamp fechaNacimiento, int idAlumno, int legajo) {
+        super(idPersona, dni, nombre, apellido, fechaNacimiento);
         this.idAlumno = idAlumno;
-        this.legajo = generarLegajo();
+        this.legajo = legajo;
     }
 
     public int getIdAlumno() {
@@ -30,28 +28,8 @@ public class Alumno extends Persona {
         return legajo;
     }
 
-    private int generarLegajo() {
-        String dniStr = String.valueOf(this.getDni());
-        String ultimosTresDigitos;
-
-        if (dniStr.length() >= 3) {
-            ultimosTresDigitos = dniStr.substring(dniStr.length() - 3);
-        } else {
-            ultimosTresDigitos = dniStr;
-        }
-
-        int dia = LocalDate.now().getDayOfMonth();
-        int mes = LocalDate.now().getMonthValue();
-
-        String diaStr = String.format("%02d", dia);
-        String mesStr = String.format("%02d", mes);
-
-        contadorAlumnos++;
-
-        String legajoStr = ultimosTresDigitos + diaStr + contadorAlumnos;
-        int legajoInt = Integer.parseInt(legajoStr);
-
-        return legajoInt;
+    public void setLegajo(int legajo) {
+        this.legajo = legajo;
     }
 
     @Override
