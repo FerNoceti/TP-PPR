@@ -22,7 +22,6 @@ public class PersonaDaoImp implements PersonaDao {
     public int addPersona(Persona persona) {
 
         if (existePersona(persona.getDni())) {
-            System.out.println("Persona con DNI " + persona.getDni() + " ya existe.");
             return -1;
         }
 
@@ -68,6 +67,39 @@ public class PersonaDaoImp implements PersonaDao {
 
     @Override
     public Persona getPersona(int idPersona) {
+        String query = "SELECT * FROM personas WHERE id_persona = ?";
+
+        try {
+            Connection connection = conexionDB.getConnection();
+
+            PreparedStatement statement = connection.prepareStatement(query);
+            statement.setInt(1, idPersona);
+
+            ResultSet rs = statement.executeQuery();
+
+            if (rs.next()) {
+                Persona persona = new Persona();
+                persona.setIdPersona(rs.getInt("id_persona"));
+                persona.setDni(rs.getInt("dni"));
+                persona.setNombre(rs.getString("nombre"));
+                persona.setApellido(rs.getString("apellido"));
+                persona.setFechaNacimiento(rs.getTimestamp("fecha_nacimiento"));
+
+                rs.close();
+                statement.close();
+                conexionDB.closeConnection();
+
+                return persona;
+            }
+
+            rs.close();
+            statement.close();
+            conexionDB.closeConnection();
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+            conexionDB.closeConnection();
+        }
         return null;
     }
 
