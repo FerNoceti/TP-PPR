@@ -1,4 +1,4 @@
-package com.ppr.model;
+package ppr.model;
 
 import java.sql.Timestamp;
 import java.time.LocalDate;

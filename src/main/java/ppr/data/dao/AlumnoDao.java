@@ -1,6 +1,6 @@
-package com.ppr.dao;
+package ppr.data.dao;
 
-import com.ppr.model.Alumno;
+import ppr.model.Alumno;
 
 import java.util.List;
 
@@ -10,11 +10,11 @@ public interface AlumnoDao extends PersonaDao {
 
     Alumno getAlumno(int id);
 
-    void addAlumno(Alumno alumno);
+    boolean addAlumno(Alumno alumno);
 
     void updateAlumno(Alumno alumno);
 
-    void deleteAlumno(int id);
+    boolean deleteAlumno(int id);
 
     boolean existeAlumno(int idPersona);
 

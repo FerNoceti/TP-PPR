@@ -1,7 +1,8 @@
-package com.ppr.dao;
+package ppr.data.repository;
 
-import com.ppr.db.ConexionDB;
-import com.ppr.model.Alumno;
+import ppr.data.dao.AlumnoDao;
+import ppr.data.database.ConexionDB;
+import ppr.model.Alumno;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -10,11 +11,11 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-public class AlumnoDaoImp extends PersonaDaoImp implements AlumnoDao {
+public class AlumnoRepository extends PersonaRepository implements AlumnoDao {
 
     private final ConexionDB conexionDB;
 
-    public AlumnoDaoImp() {
+    public AlumnoRepository() {
         super();
         this.conexionDB = new ConexionDB();
     }
@@ -54,33 +55,25 @@ public class AlumnoDaoImp extends PersonaDaoImp implements AlumnoDao {
         return null;
     }
 
-
     @Override
     public Alumno getAlumno(int id) {
         return null;
     }
 
     @Override
-    public void addAlumno(Alumno alumno) {
-
+    public boolean addAlumno(Alumno alumno) {
         int newPersonaId = super.addPersona(alumno);
 
-        if (newPersonaId == -1) {
-            System.out.println("No se pudo agregar el alumno, la persona ya existe.");
-            return;
+        if (newPersonaId == -1 || existeAlumno(newPersonaId)) {
+            return false;
         }
 
-        if (existeAlumno(newPersonaId)) {
-            System.out.println("No se pudo agregar el alumno, el alumno ya existe.");
-            return;
-        }
+        String insertAlumnoQuery = "INSERT INTO alumnos (legajo, id_persona) VALUES (generar_legajo(?, ?), ?)";
+        boolean alumnoAgregado = false;
 
-        String inserAlumnoQuery = "INSERT INTO alumnos (legajo, id_persona) VALUES (generar_legajo(?, ?), ?)";
+        try (Connection connection = conexionDB.getConnection();
+             PreparedStatement statement = connection.prepareStatement(insertAlumnoQuery)) {
 
-        try {
-            Connection connection = conexionDB.getConnection();
-
-            PreparedStatement statement = connection.prepareStatement(inserAlumnoQuery);
             statement.setString(1, String.valueOf(alumno.getDni()));
             statement.setInt(2, newPersonaId);
             statement.setInt(3, newPersonaId);
@@ -88,17 +81,15 @@ public class AlumnoDaoImp extends PersonaDaoImp implements AlumnoDao {
             int rowsAffected = statement.executeUpdate();
 
             if (rowsAffected > 0) {
-                System.out.println("Alumno agregado correctamente.");
-            } else {
-                System.out.println("No se pudo agregar el alumno.");
+                alumnoAgregado = true;
             }
         } catch (SQLException e) {
             e.printStackTrace();
         } finally {
             conexionDB.closeConnection();
         }
+        return alumnoAgregado;
     }
-
 
     @Override
     public void updateAlumno(Alumno alumno) {
@@ -106,8 +97,9 @@ public class AlumnoDaoImp extends PersonaDaoImp implements AlumnoDao {
     }
 
     @Override
-    public void deleteAlumno(int idAlumno) {
+    public boolean deleteAlumno(int idAlumno) {
         String query = "DELETE FROM alumnos WHERE id_alumno = ?";
+        boolean alumnoEliminado = false;
 
         try {
             ConexionDB conexionDB = new ConexionDB();
@@ -119,17 +111,16 @@ public class AlumnoDaoImp extends PersonaDaoImp implements AlumnoDao {
             int rowsAffected = statement.executeUpdate();
 
             if (rowsAffected > 0) {
-                System.out.println("Alumno eliminado correctamente.");
-            } else {
-                System.out.println("No se pudo eliminar el alumno.");
+                alumnoEliminado = true;
             }
 
             statement.close();
             conexionDB.closeConnection();
-        } catch (Exception e) {
-            System.out.println("Error al eliminar el alumno: " + e.getMessage());
+        } catch (SQLException e) {
+            e.printStackTrace();
+            conexionDB.closeConnection();
         }
-
+        return alumnoEliminado;
     }
 
     @Override
@@ -154,4 +145,5 @@ public class AlumnoDaoImp extends PersonaDaoImp implements AlumnoDao {
         }
         return false;
     }
+
 }

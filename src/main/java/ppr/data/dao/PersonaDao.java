@@ -1,6 +1,6 @@
-package com.ppr.dao;
+package ppr.data.dao;
 
-import com.ppr.model.Persona;
+import ppr.model.Persona;
 
 public interface PersonaDao {
 

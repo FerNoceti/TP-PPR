@@ -1,7 +1,7 @@
-package com.ppr;
+package ppr.main;
 
-import com.ppr.dao.AlumnoDaoImp;
-import com.ppr.model.Alumno;
+import ppr.logic.service.AlumnoServiceImp;
+import ppr.model.Alumno;
 
 import java.sql.Timestamp;
 import java.time.LocalDate;
@@ -14,8 +14,7 @@ public class Main {
         alumno.setApellido("Perez");
         alumno.setFechaNacimiento(Timestamp.valueOf(LocalDate.now().atStartOfDay()));
 
-        AlumnoDaoImp alumnoDaoImp = new AlumnoDaoImp();
-        alumnoDaoImp.addAlumno(alumno);
-        alumnoDaoImp.getAllAlumnos().forEach(System.out::println);
+        AlumnoServiceImp alumnoServiceImp = AlumnoServiceImp.getInstance();
+        alumnoServiceImp.addAlumno(alumno);
     }
 }
