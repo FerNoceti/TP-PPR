@@ -1,7 +1,8 @@
-package ppr.logic.service;
+package ppr.logic.service.implementations;
 
-import ppr.data.dao.AlumnoDao;
-import ppr.data.repository.AlumnoRepository;
+import ppr.data.dao.interfaces.AlumnoDao;
+import ppr.data.dao.implementations.AlumnoDaoImp;
+import ppr.logic.service.interfaces.AlumnoService;
 import ppr.model.Alumno;
 
 import java.util.List;
@@ -13,7 +14,7 @@ public class AlumnoServiceImp implements AlumnoService {
 
     private AlumnoServiceImp() {
         super();
-        this.alumnoDao = new AlumnoRepository();
+        this.alumnoDao = new AlumnoDaoImp();
     }
 
     public static AlumnoServiceImp getInstance() {

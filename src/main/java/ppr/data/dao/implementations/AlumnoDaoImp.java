@@ -1,6 +1,6 @@
-package ppr.data.repository;
+package ppr.data.dao.implementations;
 
-import ppr.data.dao.AlumnoDao;
+import ppr.data.dao.interfaces.AlumnoDao;
 import ppr.data.database.ConexionDB;
 import ppr.model.Alumno;
 
@@ -11,11 +11,11 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-public class AlumnoRepository extends PersonaRepository implements AlumnoDao {
+public class AlumnoDaoImp extends PersonaDaoImp implements AlumnoDao {
 
     private final ConexionDB conexionDB;
 
-    public AlumnoRepository() {
+    public AlumnoDaoImp() {
         super();
         this.conexionDB = new ConexionDB();
     }

@@ -1,4 +1,4 @@
-package ppr.data.dao;
+package ppr.data.dao.interfaces;
 
 import ppr.model.Persona;
 

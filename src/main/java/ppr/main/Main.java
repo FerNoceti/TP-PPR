@@ -1,6 +1,6 @@
 package ppr.main;
 
-import ppr.logic.service.AlumnoServiceImp;
+import ppr.logic.service.implementations.AlumnoServiceImp;
 import ppr.model.Alumno;
 
 import java.sql.Timestamp;

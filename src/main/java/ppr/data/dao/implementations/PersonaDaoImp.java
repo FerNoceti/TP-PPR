@@ -1,6 +1,6 @@
-package ppr.data.repository;
+package ppr.data.dao.implementations;
 
-import ppr.data.dao.PersonaDao;
+import ppr.data.dao.interfaces.PersonaDao;
 import ppr.data.database.ConexionDB;
 import ppr.model.Persona;
 
@@ -9,11 +9,11 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-public class PersonaRepository implements PersonaDao {
+public class PersonaDaoImp implements PersonaDao {
 
     private final ConexionDB conexionDB;
 
-    public PersonaRepository() {
+    public PersonaDaoImp() {
         super();
         this.conexionDB = new ConexionDB();
     }
