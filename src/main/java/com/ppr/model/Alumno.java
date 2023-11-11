@@ -1,13 +1,14 @@
 package com.ppr.model;
 
 import java.sql.Timestamp;
+import java.time.LocalDate;
 
 public class Alumno extends Persona {
     private int idAlumno;
     private int legajo;
 
     public Alumno() {
-        super();
+        super(10, 12345678, "Juan", "Perez", LocalDate.now());
     }
 
     public Alumno(int idPersona, int dni, String nombre, String apellido, Timestamp fechaNacimiento, int idAlumno, int legajo) {
@@ -30,6 +31,10 @@ public class Alumno extends Persona {
 
     public void setLegajo(int legajo) {
         this.legajo = legajo;
+    }
+
+    public void generarLegajo() {
+        this.legajo = (int) (Math.random() * 1000000);
     }
 
     @Override

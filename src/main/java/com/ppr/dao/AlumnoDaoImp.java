@@ -1,6 +1,5 @@
-package com.ppr.implementations;
+package com.ppr.dao;
 
-import com.ppr.dao.AlumnoDao;
 import com.ppr.db.ConexionDB;
 import com.ppr.model.Alumno;
 
@@ -11,9 +10,9 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-public class AlumnoDaoImp implements AlumnoDao {
+public class AlumnoDaoImp extends PersonaDaoImp implements AlumnoDao {
 
-    private ConexionDB conexionDB;
+    private final ConexionDB conexionDB;
 
     public AlumnoDaoImp() {
         super();
@@ -62,57 +61,41 @@ public class AlumnoDaoImp implements AlumnoDao {
     }
 
     @Override
-    public void addAlumno(int idPersona) {
-        String selectDNIQuery = "SELECT dni FROM personas WHERE id_persona = ?";
-        String checkIfAlumnoExistsQuery = "SELECT COUNT(*) as count FROM alumnos WHERE id_persona = ?";
+    public void addAlumno(Alumno alumno) {
+
+        int newPersonaId = super.addPersona(alumno);
+
+        if (newPersonaId == -1) {
+            System.out.println("No se pudo agregar el alumno, la persona ya existe.");
+            return;
+        }
+
+        if (existeAlumno(newPersonaId)) {
+            System.out.println("No se pudo agregar el alumno, el alumno ya existe.");
+            return;
+        }
+
+        String inserAlumnoQuery = "INSERT INTO alumnos (legajo, id_persona) VALUES (generar_legajo(?, ?), ?)";
 
         try {
-            ConexionDB conexionDB = new ConexionDB();
             Connection connection = conexionDB.getConnection();
 
-            PreparedStatement checkIfAlumnoExistsStatement = connection.prepareStatement(checkIfAlumnoExistsQuery);
-            checkIfAlumnoExistsStatement.setInt(1, idPersona);
-            ResultSet existsResultSet = checkIfAlumnoExistsStatement.executeQuery();
+            PreparedStatement statement = connection.prepareStatement(inserAlumnoQuery);
+            statement.setString(1, String.valueOf(alumno.getDni()));
+            statement.setInt(2, newPersonaId);
+            statement.setInt(3, newPersonaId);
 
-            if (existsResultSet.next()) {
-                int count = existsResultSet.getInt("count");
-                if (count > 0) {
-                    System.out.println("El id_persona ya está en la tabla de alumnos.");
-                    return;
-                }
-            }
+            int rowsAffected = statement.executeUpdate();
 
-            PreparedStatement selectStatement = connection.prepareStatement(selectDNIQuery);
-            selectStatement.setInt(1, idPersona);
-
-            ResultSet resultSet = selectStatement.executeQuery();
-
-            if (resultSet.next()) {
-                String dni = resultSet.getString("dni");
-                String insertAlumnoQuery = "INSERT INTO alumnos (legajo, id_persona) VALUES (generar_legajo(?), ?)";
-
-                PreparedStatement insertStatement = connection.prepareStatement(insertAlumnoQuery);
-                insertStatement.setString(1, dni);
-                insertStatement.setInt(2, idPersona);
-
-                int rowsAffected = insertStatement.executeUpdate();
-
-                if (rowsAffected > 0) {
-                    System.out.println("Alumno agregado correctamente.");
-                } else {
-                    System.out.println("No se pudo agregar el alumno.");
-                }
-
-                insertStatement.close();
+            if (rowsAffected > 0) {
+                System.out.println("Alumno agregado correctamente.");
             } else {
-                System.out.println("No se encontró el DNI para la persona con id " + idPersona);
+                System.out.println("No se pudo agregar el alumno.");
             }
-
-            resultSet.close();
-            selectStatement.close();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally {
             conexionDB.closeConnection();
-        } catch (Exception e) {
-            System.out.println("Error al agregar el alumno: " + e.getMessage());
         }
     }
 
@@ -147,6 +130,28 @@ public class AlumnoDaoImp implements AlumnoDao {
             System.out.println("Error al eliminar el alumno: " + e.getMessage());
         }
 
+    }
 
+    @Override
+    public boolean existeAlumno(int idPersona) {
+        String query = "SELECT * FROM alumnos WHERE id_persona = ?";
+
+        try {
+            Connection connection = conexionDB.getConnection();
+
+            PreparedStatement statement = connection.prepareStatement(query);
+            statement.setInt(1, idPersona);
+
+            boolean existe = statement.executeQuery().next();
+
+            statement.close();
+            conexionDB.closeConnection();
+
+            return existe;
+        } catch (SQLException e) {
+            e.printStackTrace();
+            conexionDB.closeConnection();
+        }
+        return false;
     }
 }

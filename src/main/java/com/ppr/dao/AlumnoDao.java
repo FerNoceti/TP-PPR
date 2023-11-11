@@ -4,16 +4,18 @@ import com.ppr.model.Alumno;
 
 import java.util.List;
 
-public interface AlumnoDao {
+public interface AlumnoDao extends PersonaDao {
 
-    public List<Alumno> getAllAlumnos();
+    List<Alumno> getAllAlumnos();
 
-    public Alumno getAlumno(int id);
+    Alumno getAlumno(int id);
 
-    public void addAlumno(int idPersona);
+    void addAlumno(Alumno alumno);
 
-    public void updateAlumno(Alumno alumno);
+    void updateAlumno(Alumno alumno);
 
-    public void deleteAlumno(int id);
+    void deleteAlumno(int id);
+
+    boolean existeAlumno(int idPersona);
 
 }

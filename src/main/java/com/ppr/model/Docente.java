@@ -1,13 +1,14 @@
 package com.ppr.model;
 
 import java.sql.Timestamp;
+import java.time.LocalDate;
 
-public class Docente extends Persona{
+public class Docente extends Persona {
     private int idDocente;
     private String cv;
 
     public Docente() {
-        super();
+        super(10, 12345678, "Juan", "Perez", LocalDate.now());
     }
 
     public Docente(int idPersona, int dni, String nombre, String apellido, Timestamp fechaNacimiento, int idDocente, String cv) {

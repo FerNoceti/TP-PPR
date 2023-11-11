@@ -3,14 +3,14 @@ package com.ppr.model;
 import java.sql.Timestamp;
 import java.time.LocalDate;
 
-public abstract class Persona {
+public class Persona {
     private int idPersona;
     private int dni;
     private String nombre;
     private String apellido;
     private Timestamp fechaNacimiento;
 
-    public Persona() {
+    public Persona(int idPersona, int dni, String juan, String perez, LocalDate now) {
         super();
     }
 
@@ -21,6 +21,10 @@ public abstract class Persona {
         this.nombre = nombre;
         this.apellido = apellido;
         this.fechaNacimiento = fechaNacimiento;
+    }
+
+    public Persona() {
+        super();
     }
 
     public int getIdPersona() {
