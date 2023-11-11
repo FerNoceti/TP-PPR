@@ -1,4 +1,4 @@
 package ppr.model;
 
-public class CursoVirtual extends Curso{
+public class CursoVirtual extends Curso {
 }

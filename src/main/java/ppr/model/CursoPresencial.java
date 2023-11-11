@@ -1,4 +1,4 @@
 package ppr.model;
 
-public class CursoPresencial extends Curso{
+public class CursoPresencial extends Curso {
 }

@@ -1,4 +1,4 @@
 package ppr.data.dao.interfaces;
 
-public interface DocenteDao extends PersonaDao{
+public interface DocenteDao extends PersonaDao {
 }
