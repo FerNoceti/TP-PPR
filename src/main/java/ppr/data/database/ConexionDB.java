@@ -1,4 +1,4 @@
-package com.ppr.db;
+package ppr.data.database;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
