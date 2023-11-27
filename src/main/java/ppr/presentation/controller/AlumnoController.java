@@ -64,6 +64,8 @@ public class AlumnoController {
                 0
         );
 
+        modelo.addRow(new Object[]{"ID Persona", "DNI", "Nombre", "Apellido", "Fecha de nacimiento", "Edad", "ID Alumno", "Legajo"});
+
         for (Alumno alumno : alumnos) {
             Object[] fila = new Object[8];
             fila[0] = alumno.getIdPersona();
