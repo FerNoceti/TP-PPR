@@ -8,6 +8,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.List;
 
 public class CursoDaoImp implements CursoDao {
 
@@ -19,13 +20,9 @@ public class CursoDaoImp implements CursoDao {
     }
 
     @Override
-    public int addCurso(Curso curso) {
+    public boolean addCurso(Curso curso) {
 
-        if (existeCurso(curso.getIdCurso())) {
-            return -1;
-        }
-
-        String query = "INSERT INTO cursos (idCurso, nombre, id_docente, decripcion, objetivo, dirigido, precio) VALUES (?, ?, ?, ?, ?, ?, ?) RETURNING id_curso";
+        String query = "INSERT INTO public.cursos(id_curso, nombre, id_docente, descripcion, objetivo, dirigido, precio) VALUES (?, ?, ?, ?, ?, ?, ?);";
 
         try {
             Connection connection = conexionDB.getConnection();
@@ -44,7 +41,7 @@ public class CursoDaoImp implements CursoDao {
             if (affectedRows > 0) {
                 statement.close();
                 conexionDB.closeConnection();
-                return curso.getIdCurso();
+                return true;
             } else {
                 throw new SQLException("Creating curso failed, no rows affected.");
             }
@@ -53,7 +50,7 @@ public class CursoDaoImp implements CursoDao {
         } finally {
             conexionDB.closeConnection();
         }
-        return -1;
+        return false;
     }
 
     @Override
@@ -97,5 +94,37 @@ public class CursoDaoImp implements CursoDao {
     @Override
     public boolean existeCurso(int idCurso) {
         return false;
+    }
+
+    @Override
+    public int obtenerUltimoIdCurso() {
+        String query = "SELECT MAX(id_curso) FROM cursos";
+
+        try {
+            Connection connection = conexionDB.getConnection();
+
+            PreparedStatement statement = connection.prepareStatement(query);
+
+            ResultSet rs = statement.executeQuery();
+
+            if (rs.next()) {
+                int idCurso = rs.getInt(1);
+
+                rs.close();
+                statement.close();
+                conexionDB.closeConnection();
+
+                return idCurso;
+            }
+
+            rs.close();
+            statement.close();
+            conexionDB.closeConnection();
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+            conexionDB.closeConnection();
+        }
+        return 0;
     }
 }

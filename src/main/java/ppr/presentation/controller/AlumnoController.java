@@ -59,16 +59,10 @@ public class AlumnoController {
     }
 
     private DefaultTableModel convertirATableModel(List<Alumno> alumnos) {
-        DefaultTableModel modelo = new DefaultTableModel();
-
-        modelo.addColumn("ID");
-        modelo.addColumn("DNI");
-        modelo.addColumn("Nombre");
-        modelo.addColumn("Apellido");
-        modelo.addColumn("Fecha de nacimiento");
-        modelo.addColumn("Edad");
-        modelo.addColumn("ID Alumno");
-        modelo.addColumn("Legajo");
+        DefaultTableModel modelo = new DefaultTableModel(
+                new Object[]{"ID", "DNI", "Nombre", "Apellido", "Fecha de nacimiento", "Edad", "ID Alumno", "Legajo"},
+                0
+        );
 
         for (Alumno alumno : alumnos) {
             Object[] fila = new Object[8];

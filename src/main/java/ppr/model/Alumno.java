@@ -8,7 +8,7 @@ public class Alumno extends Persona {
     private int legajo;
 
     public Alumno() {
-        super(10, 12345678, "Juan", "Perez", LocalDate.now());
+        super();
     }
 
     public Alumno(int idPersona, int dni, String nombre, String apellido, Timestamp fechaNacimiento, int idAlumno) {
@@ -49,6 +49,20 @@ public class Alumno extends Persona {
         }
 
         this.legajo = Integer.parseInt(ultimosTresDigitosDni + ultimosDosDigitosFecha + idAlumno);
+    }
+
+    public int calcularEdad() {
+        LocalDate fechaNacimiento = this.getFechaNacimiento().toLocalDateTime().toLocalDate();
+        LocalDate fechaActual = LocalDate.now();
+        int edad = fechaActual.getYear() - fechaNacimiento.getYear();
+        if (fechaNacimiento.getMonthValue() > fechaActual.getMonthValue()) {
+            edad--;
+        } else if (fechaNacimiento.getMonthValue() == fechaActual.getMonthValue()) {
+            if (fechaNacimiento.getDayOfMonth() > fechaActual.getDayOfMonth()) {
+                edad--;
+            }
+        }
+        return edad;
     }
 
     @Override

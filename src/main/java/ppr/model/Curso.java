@@ -3,11 +3,16 @@ package ppr.model;
 public class Curso {
     private int idCurso;
     private String nombre;
+
+    private Character codigo;
     private int idDocente;
     private String descripcion;
     private String objetivo;
     private String dirigido;
     private int precio;
+
+    public Curso() {
+    }
 
     public Curso(int idCurso, String nombre, int idDocente, String descripcion, String objetivo, String dirigido, int precio) {
         this.idCurso = idCurso;
@@ -17,18 +22,6 @@ public class Curso {
         this.objetivo = objetivo;
         this.dirigido = dirigido;
         this.precio = precio;
-    }
-
-    public Curso(String nombre, int idDocente, String descripcion, String objetivo, String dirigido, int precio) {
-        this.nombre = nombre;
-        this.idDocente = idDocente;
-        this.descripcion = descripcion;
-        this.objetivo = objetivo;
-        this.dirigido = dirigido;
-        this.precio = precio;
-    }
-
-    public Curso() {
     }
 
     public int getIdCurso() {
@@ -45,6 +38,14 @@ public class Curso {
 
     public void setNombre(String nombre) {
         this.nombre = nombre;
+    }
+
+    public Character getCodigo() {
+        return codigo;
+    }
+
+    public void setCodigo(Character codigo) {
+        this.codigo = codigo;
     }
 
     public int getIdDocente() {
@@ -85,19 +86,6 @@ public class Curso {
 
     public void setPrecio(int precio) {
         this.precio = precio;
-    }
-
-    @Override
-    public String toString() {
-        return "Curso{" +
-                "idCurso=" + idCurso +
-                ", nombre='" + nombre + '\'' +
-                ", idDocente=" + idDocente +
-                ", descripcion='" + descripcion + '\'' +
-                ", objetivo='" + objetivo + '\'' +
-                ", dirigido='" + dirigido + '\'' +
-                ", precio=" + precio +
-                '}';
     }
 }
 
