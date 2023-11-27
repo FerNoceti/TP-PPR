@@ -85,4 +85,6 @@ public class AlumnoView {
         return textFieldId;
     }
 
+    public void setVisible(boolean b) {
+    }
 }

@@ -4,7 +4,7 @@ import ppr.model.Persona;
 
 public interface PersonaDao {
 
-    int addPersona(Persona persona);
+    boolean addPersona(Persona persona);
 
     void deletePersona(int idPersona);
 
@@ -13,4 +13,6 @@ public interface PersonaDao {
     int getDni(int idPersona);
 
     boolean existePersona(int dni);
+
+    int obtenerUltimoIdPersona();
 }

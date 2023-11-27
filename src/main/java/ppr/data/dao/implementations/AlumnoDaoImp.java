@@ -57,38 +57,69 @@ public class AlumnoDaoImp extends PersonaDaoImp implements AlumnoDao {
 
     @Override
     public Alumno getAlumno(int id) {
+        String query = "SELECT * FROM alumnos a INNER JOIN personas p ON a.id_persona = p.id_persona WHERE id_alumno = ?";
+
+        try {
+            Connection connection = conexionDB.getConnection();
+
+            PreparedStatement statement = connection.prepareStatement(query);
+            statement.setInt(1, id);
+
+            ResultSet rs = statement.executeQuery();
+
+            if (rs.next()) {
+                Alumno alumno = new Alumno();
+                alumno.setIdAlumno(rs.getInt("id_alumno"));
+                alumno.setLegajo(rs.getInt("legajo"));
+                alumno.setDni(rs.getInt("dni"));
+                alumno.setIdPersona(rs.getInt("id_persona"));
+                alumno.setNombre(rs.getString("nombre"));
+                alumno.setApellido(rs.getString("apellido"));
+                alumno.setFechaNacimiento(rs.getTimestamp("fecha_nacimiento"));
+
+                rs.close();
+                statement.close();
+                conexionDB.closeConnection();
+
+                return alumno;
+            }
+
+            rs.close();
+            statement.close();
+            conexionDB.closeConnection();
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+            conexionDB.closeConnection();
+        }
         return null;
     }
 
     @Override
     public boolean addAlumno(Alumno alumno) {
-        int newPersonaId = super.addPersona(alumno);
+        super.addPersona(alumno);
 
-        if (newPersonaId == -1 || existeAlumno(newPersonaId)) {
-            return false;
-        }
+        String insertAlumnoQuery = "INSERT INTO public.alumnos(id_alumno, legajo, id_persona)  VALUES (?, ?, ?);";
 
-        String insertAlumnoQuery = "INSERT INTO alumnos (legajo, id_persona) VALUES (generar_legajo(?, ?), ?)";
-        boolean alumnoAgregado = false;
+        try {
+            Connection connection = conexionDB.getConnection();
 
-        try (Connection connection = conexionDB.getConnection();
-             PreparedStatement statement = connection.prepareStatement(insertAlumnoQuery)) {
-
-            statement.setString(1, String.valueOf(alumno.getDni()));
-            statement.setInt(2, newPersonaId);
-            statement.setInt(3, newPersonaId);
+            PreparedStatement statement = connection.prepareStatement(insertAlumnoQuery);
+            statement.setInt(1, alumno.getIdAlumno());
+            statement.setInt(2, alumno.getLegajo());
+            statement.setInt(3, alumno.getIdPersona());
 
             int rowsAffected = statement.executeUpdate();
 
-            if (rowsAffected > 0) {
-                alumnoAgregado = true;
-            }
+            statement.close();
+            conexionDB.closeConnection();
+
+            return rowsAffected > 0;
         } catch (SQLException e) {
             e.printStackTrace();
-        } finally {
             conexionDB.closeConnection();
         }
-        return alumnoAgregado;
+        return false;
     }
 
     @Override
@@ -144,6 +175,38 @@ public class AlumnoDaoImp extends PersonaDaoImp implements AlumnoDao {
             conexionDB.closeConnection();
         }
         return false;
+    }
+
+    @Override
+    public int obtenerUltimoIdAlumno() {
+        String query = "SELECT MAX(id_alumno) FROM alumnos";
+
+        try {
+            Connection connection = conexionDB.getConnection();
+
+            PreparedStatement statement = connection.prepareStatement(query);
+
+            ResultSet rs = statement.executeQuery();
+
+            if (rs.next()) {
+                int idAlumno = rs.getInt(1);
+
+                rs.close();
+                statement.close();
+                conexionDB.closeConnection();
+
+                return idAlumno;
+            }
+
+            rs.close();
+            statement.close();
+            conexionDB.closeConnection();
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+            conexionDB.closeConnection();
+        }
+        return 0;
     }
 
 }

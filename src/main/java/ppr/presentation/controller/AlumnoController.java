@@ -4,6 +4,7 @@ import ppr.logic.service.implementations.AlumnoServiceImp;
 import ppr.model.Alumno;
 import ppr.presentation.view.AlumnoView;
 
+import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
@@ -16,6 +17,9 @@ public class AlumnoController {
 
     public AlumnoController(AlumnoView view) {
         this.view = view;
+        cargarTablaAlumnos();
+        cargarUltimoIdPersona();
+        cargarUltimoIdAlumno();
         attachEventListeners();
     }
 
@@ -23,20 +27,8 @@ public class AlumnoController {
         view.getButtonSearch().addMouseListener(new MouseAdapter() {
             @Override
             public void mouseClicked(MouseEvent e) {
-                int id = Integer.parseInt(view.getTextFieldIDSearch().getText());
-                System.out.printf("Buscando alumno con id %d\n", id);
-                Alumno alumno = alumnoServiceImp.getAlumno(id);
-
-                if (alumno != null) {
-                    view.getTextFieldId().setText(String.valueOf(alumno.getIdPersona()));
-                    view.getTextFieldDNI().setText(String.valueOf(alumno.getDni()));
-                    view.getTextFieldNombre().setText(alumno.getNombre());
-                    view.getTextFieldApellido().setText(alumno.getApellido());
-                    view.getTextFieldFechaNac().setText(alumno.getFechaNacimiento().toString());
-                    view.getTextFieldEdad().setText(String.valueOf(alumno.calcularEdad()));
-                    view.getTextFieldIdAlumno().setText(String.valueOf(alumno.getIdAlumno()));
-                    view.getTextFieldLegajo().setText(String.valueOf(alumno.getLegajo()));
-                }
+                buscarAlumno();
+                disableTextFields();
             }
         });
 
@@ -44,6 +36,9 @@ public class AlumnoController {
             @Override
             public void mouseClicked(MouseEvent e) {
                 limpiarCampos();
+                enableTextFields();
+                cargarUltimoIdPersona();
+                cargarUltimoIdAlumno();
             }
         });
 
@@ -119,6 +114,58 @@ public class AlumnoController {
 
         Alumno alumno = new Alumno(id, dni, nombre, apellido, fechaNacimientoTimestamp, idAlumno);
         alumnoServiceImp.addAlumno(alumno);
+    }
+
+    private void buscarAlumno(){
+        int id = Integer.parseInt(view.getTextFieldIDSearch().getText());
+        System.out.printf("Buscando alumno con id %d\n", id);
+        Alumno alumno = alumnoServiceImp.getAlumno(id);
+
+        if (alumno != null) {
+            view.getTextFieldId().setText(String.valueOf(alumno.getIdPersona()));
+            view.getTextFieldDNI().setText(String.valueOf(alumno.getDni()));
+            view.getTextFieldNombre().setText(alumno.getNombre());
+            view.getTextFieldApellido().setText(alumno.getApellido());
+            view.getTextFieldFechaNac().setText(alumno.getFechaNacimiento().toString());
+            view.getTextFieldEdad().setText(String.valueOf(alumno.calcularEdad()));
+            view.getTextFieldIdAlumno().setText(String.valueOf(alumno.getIdAlumno()));
+            view.getTextFieldLegajo().setText(String.valueOf(alumno.getLegajo()));
+
+        } else {
+            JOptionPane.showMessageDialog(null, "No existe alumno con id " + id);
+        }
+    }
+
+    private void  disableTextFields(){
+        view.getTextFieldId().setEnabled(false);
+        view.getTextFieldDNI().setEnabled(false);
+        view.getTextFieldNombre().setEnabled(false);
+        view.getTextFieldApellido().setEnabled(false);
+        view.getTextFieldFechaNac().setEnabled(false);
+        view.getTextFieldEdad().setEnabled(false);
+        view.getTextFieldIdAlumno().setEnabled(false);
+        view.getTextFieldLegajo().setEnabled(false);
+    }
+
+    private void enableTextFields(){
+        view.getTextFieldId().setEnabled(true);
+        view.getTextFieldDNI().setEnabled(true);
+        view.getTextFieldNombre().setEnabled(true);
+        view.getTextFieldApellido().setEnabled(true);
+        view.getTextFieldFechaNac().setEnabled(true);
+        view.getTextFieldEdad().setEnabled(true);
+        view.getTextFieldIdAlumno().setEnabled(true);
+        view.getTextFieldLegajo().setEnabled(true);
+    }
+
+    private void cargarUltimoIdAlumno(){
+        int idAlumno = alumnoServiceImp.obtenerUltimoIdAlumno();
+        view.getTextFieldIdAlumno().setText(String.valueOf(idAlumno + 1));
+    }
+
+    private void cargarUltimoIdPersona(){
+        int idPersona = alumnoServiceImp.obtenerUltimoIdPersona();
+        view.getTextFieldId().setText(String.valueOf(idPersona + 1));
     }
 
 }

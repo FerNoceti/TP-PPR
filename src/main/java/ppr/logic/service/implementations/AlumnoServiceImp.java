@@ -5,6 +5,7 @@ import ppr.data.dao.interfaces.AlumnoDao;
 import ppr.logic.service.interfaces.AlumnoService;
 import ppr.model.Alumno;
 
+import java.time.LocalDate;
 import java.util.List;
 
 public class AlumnoServiceImp implements AlumnoService {
@@ -70,5 +71,15 @@ public class AlumnoServiceImp implements AlumnoService {
         } else {
             System.out.println("No se pudo eliminar el alumno");
         }
+    }
+
+    @Override
+    public int obtenerUltimoIdAlumno() {
+        return alumnoDao.obtenerUltimoIdAlumno();
+    }
+
+    @Override
+    public int obtenerUltimoIdPersona() {
+        return alumnoDao.obtenerUltimoIdPersona();
     }
 }

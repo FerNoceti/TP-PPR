@@ -11,15 +11,10 @@ public class Alumno extends Persona {
         super(10, 12345678, "Juan", "Perez", LocalDate.now());
     }
 
-    public Alumno(int idPersona, int dni, String nombre, String apellido, Timestamp fechaNacimiento, int idAlumno, int legajo) {
+    public Alumno(int idPersona, int dni, String nombre, String apellido, Timestamp fechaNacimiento, int idAlumno) {
         super(idPersona, dni, nombre, apellido, fechaNacimiento);
         this.idAlumno = idAlumno;
-        this.legajo = legajo;
-    }
-
-    public Alumno(int id, int dni, String nombre, String apellido, Timestamp fechaNacimientoTimestamp, int idAlumno) {
-        super(id, dni, nombre, apellido, fechaNacimientoTimestamp);
-        this.idAlumno = idAlumno;
+        generarLegajo();
     }
 
     public int getIdAlumno() {
@@ -39,7 +34,21 @@ public class Alumno extends Persona {
     }
 
     public void generarLegajo() {
-        this.legajo = (int) (Math.random() * 1000000);
+        String dni = String.valueOf(this.getDni());
+        String ultimosTresDigitosDni = dni.substring(dni.length() - 3);
+
+        int fecha = LocalDate.now().getDayOfMonth();
+        String ultimosDosDigitosFecha = String.valueOf(fecha);
+        if (ultimosDosDigitosFecha.length() == 1) {
+            ultimosDosDigitosFecha = "0" + ultimosDosDigitosFecha;
+        }
+
+        String idAlumno = String.valueOf(this.getIdAlumno());
+        if (idAlumno.length() == 1) {
+            idAlumno = "0" + idAlumno;
+        }
+
+        this.legajo = Integer.parseInt(ultimosTresDigitosDni + ultimosDosDigitosFecha + idAlumno);
     }
 
     @Override

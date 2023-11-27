@@ -18,4 +18,6 @@ public interface AlumnoDao extends PersonaDao {
 
     boolean existeAlumno(int idPersona);
 
+    int obtenerUltimoIdAlumno();
+
 }

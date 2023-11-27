@@ -19,45 +19,40 @@ public class PersonaDaoImp implements PersonaDao {
     }
 
     @Override
-    public int addPersona(Persona persona) {
-
-        if (existePersona(persona.getDni())) {
-            return -1;
-        }
-
-        String query = "INSERT INTO personas (dni, nombre, apellido, fecha_nacimiento) VALUES (?, ?, ?, ?) RETURNING id_persona";
+    public boolean addPersona(Persona persona) {
+        String query = "INSERT INTO personas (id_persona, dni, nombre, apellido, fecha_nacimiento) VALUES (?, ?, ?, ?, ?) RETURNING id_persona";
 
         try {
             Connection connection = conexionDB.getConnection();
 
-            PreparedStatement statement = connection.prepareStatement(query, PreparedStatement.RETURN_GENERATED_KEYS);
-            statement.setInt(1, persona.getDni());
-            statement.setString(2, persona.getNombre());
-            statement.setString(3, persona.getApellido());
-            statement.setTimestamp(4, persona.getFechaNacimiento());
+            PreparedStatement statement = connection.prepareStatement(query);
+            statement.setInt(1, persona.getIdPersona());
+            statement.setInt(2, persona.getDni());
+            statement.setString(3, persona.getNombre());
+            statement.setString(4, persona.getApellido());
+            statement.setTimestamp(5, persona.getFechaNacimiento());
 
-            int affectedRows = statement.executeUpdate();
+            ResultSet rs = statement.executeQuery();
 
-            if (affectedRows > 0) {
-                try (ResultSet generatedKeys = statement.getGeneratedKeys()) {
-                    if (generatedKeys.next()) {
-                        int idPersona = generatedKeys.getInt(1);
-                        statement.close();
-                        conexionDB.closeConnection();
-                        return idPersona;
-                    } else {
-                        throw new SQLException("Creating persona failed, no ID obtained.");
-                    }
-                }
-            } else {
-                throw new SQLException("Creating persona failed, no rows affected.");
+            if (rs.next()) {
+                int idPersona = rs.getInt(1);
+
+                rs.close();
+                statement.close();
+                conexionDB.closeConnection();
+
+                return idPersona != 0;
             }
+
+            rs.close();
+            statement.close();
+            conexionDB.closeConnection();
 
         } catch (SQLException e) {
             e.printStackTrace();
             conexionDB.closeConnection();
         }
-        return -1;
+        return false;
     }
 
     @Override
@@ -129,5 +124,37 @@ public class PersonaDaoImp implements PersonaDao {
             conexionDB.closeConnection();
         }
         return false;
+    }
+
+    @Override
+    public int obtenerUltimoIdPersona() {
+        String query = "SELECT MAX(id_persona) FROM personas";
+
+        try {
+            Connection connection = conexionDB.getConnection();
+
+            PreparedStatement statement = connection.prepareStatement(query);
+
+            ResultSet rs = statement.executeQuery();
+
+            if (rs.next()) {
+                int idPersona = rs.getInt(1);
+
+                rs.close();
+                statement.close();
+                conexionDB.closeConnection();
+
+                return idPersona;
+            }
+
+            rs.close();
+            statement.close();
+            conexionDB.closeConnection();
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+            conexionDB.closeConnection();
+        }
+        return 0;
     }
 }
