@@ -91,6 +91,35 @@ public class DocenteDaoImp extends PersonaDaoImp implements DocenteDao {
 
     @Override
     public boolean addDocente(Docente docente) {
+        super.addPersona(docente);
+
+        String query = "INSERT INTO docentes (id_docente, cv, id_persona) VALUES (?, ?, ?)";
+
+        try {
+            Connection connection = conexionDB.getConnection();
+
+            PreparedStatement statement = connection.prepareStatement(query);
+            statement.setInt(1, docente.getIdDocente());
+            statement.setString(2, docente.getCv());
+            statement.setInt(3, docente.getIdPersona());
+
+            int rowsInserted = statement.executeUpdate();
+
+            if (rowsInserted > 0) {
+                System.out.println("Docente agregado exitosamente");
+                statement.close();
+                conexionDB.closeConnection();
+                return true;
+            } else {
+                System.out.println("No se pudo agregar el docente");
+                statement.close();
+                conexionDB.closeConnection();
+                return false;
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+            conexionDB.closeConnection();
+        }
         return false;
     }
 
@@ -111,6 +140,31 @@ public class DocenteDaoImp extends PersonaDaoImp implements DocenteDao {
 
     @Override
     public int obtenerUltimoIdDocente() {
+        String query = "SELECT MAX(id_docente) AS id_docente FROM docentes";
+
+        try {
+            Connection connection = conexionDB.getConnection();
+
+            PreparedStatement statement = connection.prepareStatement(query);
+            ResultSet rs = statement.executeQuery();
+
+            if (rs.next()) {
+                int idDocente = rs.getInt("id_docente");
+
+                conexionDB.closeResultSet(rs);
+                statement.close();
+                conexionDB.closeConnection();
+
+                return idDocente;
+            } else {
+                System.out.println("No existe ningún docente");
+                return 0;
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+            conexionDB.closeConnection();
+        }
+
         return 0;
     }
 }

@@ -1,5 +1,6 @@
 package ppr.logic.service.implementations;
 
+import ppr.data.dao.implementations.DocenteDaoImp;
 import ppr.data.dao.interfaces.DocenteDao;
 import ppr.logic.service.interfaces.DocenteService;
 import ppr.model.Docente;
@@ -13,7 +14,7 @@ public class DocenteServiceImp implements DocenteService {
 
     private DocenteServiceImp() {
         super();
-        this.docenteDao = null;
+        this.docenteDao = new DocenteDaoImp();
     }
 
     public static DocenteServiceImp getInstance() {
@@ -46,7 +47,11 @@ public class DocenteServiceImp implements DocenteService {
 
     @Override
     public void addDocente(Docente docente) {
-
+        if (docenteDao.addDocente(docente)) {
+            System.out.println("Docente agregado correctamente");
+        } else {
+            System.out.println("No se pudo agregar el docente");
+        }
     }
 
     @Override
@@ -61,11 +66,11 @@ public class DocenteServiceImp implements DocenteService {
 
     @Override
     public int obtenerUltimoIdDocente() {
-        return 0;
+        return docenteDao.obtenerUltimoIdDocente();
     }
 
     @Override
     public int obtenerUltimoIdPersona() {
-        return 0;
+        return docenteDao.obtenerUltimoIdPersona();
     }
 }
