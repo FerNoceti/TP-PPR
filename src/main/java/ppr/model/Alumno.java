@@ -17,6 +17,11 @@ public class Alumno extends Persona {
         this.legajo = legajo;
     }
 
+    public Alumno(int id, int dni, String nombre, String apellido, Timestamp fechaNacimientoTimestamp, int idAlumno) {
+        super(id, dni, nombre, apellido, fechaNacimientoTimestamp);
+        this.idAlumno = idAlumno;
+    }
+
     public int getIdAlumno() {
         return idAlumno;
     }
