@@ -14,7 +14,7 @@ public class CursoPresencial extends Curso {
         this.hora = hora;
     }
 
-    public CursoPresencial(){
+    public CursoPresencial() {
         super();
     }
 

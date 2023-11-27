@@ -12,8 +12,8 @@ import java.sql.Timestamp;
 import java.util.List;
 
 public class AlumnoController {
-    private AlumnoView view;
     AlumnoServiceImp alumnoServiceImp = AlumnoServiceImp.getInstance();
+    private final AlumnoView view;
 
     public AlumnoController(AlumnoView view) {
         this.view = view;
@@ -99,7 +99,7 @@ public class AlumnoController {
         view.getTableAlumnos().setModel(alumnosModel);
     }
 
-    private void cargarAlumno(){
+    private void cargarAlumno() {
         int id = Integer.parseInt(view.getTextFieldId().getText());
         int dni = Integer.parseInt(view.getTextFieldDNI().getText());
         String nombre = view.getTextFieldNombre().getText();
@@ -112,7 +112,7 @@ public class AlumnoController {
         alumnoServiceImp.addAlumno(alumno);
     }
 
-    private void buscarAlumno(){
+    private void buscarAlumno() {
         int id = Integer.parseInt(view.getTextFieldIDSearch().getText());
         System.out.printf("Buscando alumno con id %d\n", id);
         Alumno alumno = alumnoServiceImp.getAlumno(id);
@@ -132,7 +132,7 @@ public class AlumnoController {
         }
     }
 
-    private void  disableTextFields(){
+    private void disableTextFields() {
         view.getTextFieldId().setEnabled(false);
         view.getTextFieldDNI().setEnabled(false);
         view.getTextFieldNombre().setEnabled(false);
@@ -143,7 +143,7 @@ public class AlumnoController {
         view.getTextFieldLegajo().setEnabled(false);
     }
 
-    private void enableTextFields(){
+    private void enableTextFields() {
         view.getTextFieldId().setEnabled(true);
         view.getTextFieldDNI().setEnabled(true);
         view.getTextFieldNombre().setEnabled(true);
@@ -154,12 +154,12 @@ public class AlumnoController {
         view.getTextFieldLegajo().setEnabled(true);
     }
 
-    private void cargarUltimoIdAlumno(){
+    private void cargarUltimoIdAlumno() {
         int idAlumno = alumnoServiceImp.obtenerUltimoIdAlumno();
         view.getTextFieldIdAlumno().setText(String.valueOf(idAlumno + 1));
     }
 
-    private void cargarUltimoIdPersona(){
+    private void cargarUltimoIdPersona() {
         int idPersona = alumnoServiceImp.obtenerUltimoIdPersona();
         view.getTextFieldId().setText(String.valueOf(idPersona + 1));
     }

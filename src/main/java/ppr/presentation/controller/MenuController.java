@@ -7,7 +7,7 @@ import ppr.presentation.view.MenuView;
 import javax.swing.*;
 
 public class MenuController {
-    private MenuView view;
+    private final MenuView view;
 
     public MenuController(MenuView view) {
         this.view = view;

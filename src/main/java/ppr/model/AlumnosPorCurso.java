@@ -26,20 +26,20 @@ public class AlumnosPorCurso {
         return id;
     }
 
-    public int getIdCurso() {
-        return idCurso;
-    }
-
-    public int getIdAlumno() {
-        return idAlumno;
-    }
-
     public void setId(int id) {
         this.id = id;
     }
 
+    public int getIdCurso() {
+        return idCurso;
+    }
+
     public void setIdCurso(int idCurso) {
         this.idCurso = idCurso;
+    }
+
+    public int getIdAlumno() {
+        return idAlumno;
     }
 
     public void setIdAlumno(int idAlumno) {

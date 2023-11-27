@@ -2,8 +2,6 @@ package ppr.data.dao.interfaces;
 
 import ppr.model.Curso;
 
-import java.util.List;
-
 public interface CursoDao {
 
     boolean addCurso(Curso curso);
@@ -13,5 +11,6 @@ public interface CursoDao {
     Curso getCurso(int idCurso);
 
     boolean existeCurso(int idCurso);
+
     int obtenerUltimoIdCurso();
 }

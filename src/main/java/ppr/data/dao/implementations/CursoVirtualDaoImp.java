@@ -18,6 +18,7 @@ public class CursoVirtualDaoImp extends CursoDaoImp implements CursoVirtualDao {
         super();
         this.conexionDB = new ConexionDB();
     }
+
     @Override
     public List<CursoVirtual> getAllCursosVirtuales() {
         String query = "SELECT * FROM cursos_online a INNER JOIN cursos c ON a.id_curso = c.id_curso";

@@ -5,7 +5,6 @@ import ppr.data.dao.interfaces.AlumnoDao;
 import ppr.logic.service.interfaces.AlumnoService;
 import ppr.model.Alumno;
 
-import java.time.LocalDate;
 import java.util.List;
 
 public class AlumnoServiceImp implements AlumnoService {

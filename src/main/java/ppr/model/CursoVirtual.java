@@ -3,10 +3,10 @@ package ppr.model;
 import java.sql.Timestamp;
 
 public class CursoVirtual extends Curso {
+    String hora;
     private int idCursoVirtual;
     private String link;
     private Timestamp fecha;
-    String hora;
 
     public CursoVirtual() {
         super();

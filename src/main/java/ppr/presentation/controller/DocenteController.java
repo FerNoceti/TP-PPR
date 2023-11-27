@@ -11,9 +11,8 @@ import java.sql.Timestamp;
 import java.util.List;
 
 public class DocenteController {
-    private DocenteView view;
-
     DocenteServiceImp docenteServiceImp = DocenteServiceImp.getInstance();
+    private final DocenteView view;
 
     public DocenteController(DocenteView view) {
         this.view = view;
