@@ -13,4 +13,6 @@ public interface CursoDao {
     boolean existeCurso(int idCurso);
 
     int obtenerUltimoIdCurso();
+
+    char obtenerUltimoCodigoCurso();
 }

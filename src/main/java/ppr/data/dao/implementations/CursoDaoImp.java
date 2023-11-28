@@ -126,4 +126,9 @@ public class CursoDaoImp implements CursoDao {
         }
         return 0;
     }
+
+    @Override
+    public char obtenerUltimoCodigoCurso() {
+        return 0;
+    }
 }

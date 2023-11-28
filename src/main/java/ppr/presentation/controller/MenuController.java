@@ -1,6 +1,7 @@
 package ppr.presentation.controller;
 
 import ppr.presentation.view.AlumnoView;
+import ppr.presentation.view.CursoPresencialView;
 import ppr.presentation.view.DocenteView;
 import ppr.presentation.view.MenuView;
 
@@ -32,6 +33,17 @@ public class MenuController {
 
             JFrame frame = new JFrame("Docentes");
             frame.setContentPane(docenteView.getDocentePanel());
+            frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+            frame.pack();
+            frame.setVisible(true);
+        });
+
+        view.getVentanaCursosPresencialesButton().addActionListener(e -> {
+            CursoPresencialView cursoPresencialView = new CursoPresencialView();
+            CursoPresencialController cursoPresencialController = new CursoPresencialController(cursoPresencialView);
+
+            JFrame frame = new JFrame("Cursos Presenciales");
+            frame.setContentPane(cursoPresencialView.getCursoPresencialPanel());
             frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
             frame.pack();
             frame.setVisible(true);

@@ -2,12 +2,19 @@ package ppr.model;
 
 public class CursoPresencial extends Curso {
     private int idCursoPresencial;
-    private String aula;
+    private int aula;
     private String fecha;
     private String hora;
 
-    public CursoPresencial(int idCurso, String nombre, int idDocente, String descripcion, String objetivo, String dirigido, int precio, int idCursoPresencial, String aula, String fecha, String hora) {
-        super(idCurso, nombre, idDocente, descripcion, objetivo, dirigido, precio);
+    public CursoPresencial(int idCursoPresencial, int aula, String fecha, String hora) {
+        this.idCursoPresencial = idCursoPresencial;
+        this.aula = aula;
+        this.fecha = fecha;
+        this.hora = hora;
+    }
+
+    public CursoPresencial(int idCurso, String nombre, Character codigo, int idDocente, String descripcion, String objetivo, String dirigido, int precio, int idCursoPresencial, int aula, String fecha, String hora) {
+        super(idCurso, nombre, codigo, idDocente, descripcion, objetivo, dirigido, precio);
         this.idCursoPresencial = idCursoPresencial;
         this.aula = aula;
         this.fecha = fecha;
@@ -26,11 +33,11 @@ public class CursoPresencial extends Curso {
         this.idCursoPresencial = idCursoPresencial;
     }
 
-    public String getAula() {
+    public int getAula() {
         return aula;
     }
 
-    public void setAula(String aula) {
+    public void setAula(int aula) {
         this.aula = aula;
     }
 

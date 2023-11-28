@@ -3,7 +3,6 @@ package ppr.model;
 public class Curso {
     private int idCurso;
     private String nombre;
-
     private Character codigo;
     private int idDocente;
     private String descripcion;
@@ -14,14 +13,16 @@ public class Curso {
     public Curso() {
     }
 
-    public Curso(int idCurso, String nombre, int idDocente, String descripcion, String objetivo, String dirigido, int precio) {
+    public Curso(int idCurso, String nombre, Character codigo, int idDocente, String descripcion, String objetivo, String dirigido, int precio) {
         this.idCurso = idCurso;
         this.nombre = nombre;
+        this.codigo = codigo;
         this.idDocente = idDocente;
         this.descripcion = descripcion;
         this.objetivo = objetivo;
         this.dirigido = dirigido;
         this.precio = precio;
+
     }
 
     public int getIdCurso() {
