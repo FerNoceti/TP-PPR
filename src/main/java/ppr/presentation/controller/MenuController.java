@@ -1,9 +1,6 @@
 package ppr.presentation.controller;
 
-import ppr.presentation.view.AlumnoView;
-import ppr.presentation.view.CursoPresencialView;
-import ppr.presentation.view.DocenteView;
-import ppr.presentation.view.MenuView;
+import ppr.presentation.view.*;
 
 import javax.swing.*;
 
@@ -44,6 +41,17 @@ public class MenuController {
 
             JFrame frame = new JFrame("Cursos Presenciales");
             frame.setContentPane(cursoPresencialView.getCursoPresencialPanel());
+            frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+            frame.pack();
+            frame.setVisible(true);
+        });
+
+        view.getInscribirCursoPresencialButton().addActionListener(e -> {
+            InscripcionCursoPresencialView inscribirCursoPresencialView = new InscripcionCursoPresencialView();
+            InscribirCursoPresencialController inscribirCursoPresencialController = new InscribirCursoPresencialController(inscribirCursoPresencialView);
+
+            JFrame frame = new JFrame("Inscribir Curso Presencial");
+            frame.setContentPane(inscribirCursoPresencialView.getInscripcionCursoPresencialPanel());
             frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
             frame.pack();
             frame.setVisible(true);

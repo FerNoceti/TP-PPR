@@ -9,6 +9,7 @@ public class MenuView {
     private JButton ventanaCursosOnlineButton;
     private JButton consultasButton;
     private JPanel menuPanel;
+    private JButton inscribirCursoPresencialButton;
 
     public MenuView() {
     }
@@ -58,5 +59,9 @@ public class MenuView {
     }
 
     public void setVisible(boolean b) {
+    }
+
+    public JButton getInscribirCursoPresencialButton() {
+        return inscribirCursoPresencialButton;
     }
 }

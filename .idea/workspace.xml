@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="80b44838-0ec4-4128-9e68-8cfbf2139ea1" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/main/java/ppr/logic/service/implementations/AlumnosPorCursoServiceImp.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/ppr/logic/service/interfaces/AlumnosPorCursoService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/ppr/presentation/controller/InscribirCursoPresencialController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/ppr/presentation/view/InscripcionCursoPresencialView.form" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/ppr/presentation/view/InscripcionCursoPresencialView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ppr/data/dao/implementations/AlumnosPorCursoDaoImp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ppr/data/dao/implementations/AlumnosPorCursoDaoImp.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ppr/data/dao/interfaces/AlumnosPorCursoDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ppr/data/dao/interfaces/AlumnosPorCursoDao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ppr/presentation/controller/MenuController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ppr/presentation/controller/MenuController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ppr/presentation/view/MenuView.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ppr/presentation/view/MenuView.form" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ppr/presentation/view/MenuView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ppr/presentation/view/MenuView.java" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Interface" />
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "git-widget-placeholder": "master"
+  }
+}]]></component>
+  <component name="RunManager">
+    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="ppr.main.Main" />
+      <module name="TP-PPR" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="ppr.main.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.Main" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="TaskManager">
+    <servers />
+  </component>
+</project>
