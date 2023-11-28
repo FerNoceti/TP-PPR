@@ -5,16 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="80b44838-0ec4-4128-9e68-8cfbf2139ea1" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/ppr/logic/service/implementations/AlumnosPorCursoServiceImp.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/ppr/logic/service/interfaces/AlumnosPorCursoService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/ppr/presentation/controller/InscribirCursoPresencialController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/ppr/presentation/view/InscripcionCursoPresencialView.form" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/ppr/presentation/view/InscripcionCursoPresencialView.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ppr/data/dao/implementations/AlumnosPorCursoDaoImp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ppr/data/dao/implementations/AlumnosPorCursoDaoImp.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ppr/data/dao/interfaces/AlumnosPorCursoDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ppr/data/dao/interfaces/AlumnosPorCursoDao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ppr/presentation/controller/MenuController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ppr/presentation/controller/MenuController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ppr/presentation/view/MenuView.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ppr/presentation/view/MenuView.form" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ppr/presentation/view/MenuView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ppr/presentation/view/MenuView.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/ppr/data/dao/implementations/ConsultasDaoImp.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
