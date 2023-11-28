@@ -9,9 +9,9 @@ public class ConexionDB {
 
     Connection connection = null;
 
-    String jdbcUrl = "";
-    String username = "";
-    String password = "";
+    String jdbcUrl = "jdbc:postgresql://localhost:5432/tp-ppr";
+    String username = "postgres";
+    String password = "clona";
 
     public ConexionDB() {
         try {
