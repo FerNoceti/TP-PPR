@@ -17,4 +17,18 @@ public interface AlumnosPorCursoService {
         boolean existeAlumnoEnCurso(int idAlumno, int idCurso);
 
         int getNumAlumnosEnCurso(int idCurso);
+
+        int descuentoPorCantidadDeCursos(int idCurso);
+
+        int alumnoEnOtrosCursos(int idAlumno);
+
+        boolean addAlumnoACursoVirtual(int idAlumno, int idCurso);
+
+        boolean existeAlumnoEnCursoVirtual(int idAlumno, int idCurso);
+
+        boolean deleteAlumnoDeCursoVirtual(int idAlumno, int idCurso);
+
+        List<Alumno> getAlumnosPorCursoVirtual(int idCurso);
+
+        List<Integer> getIdAlumnosPorCursoVirtual(int idCurso);
 }

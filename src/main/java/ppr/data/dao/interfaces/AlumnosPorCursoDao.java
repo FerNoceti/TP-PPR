@@ -17,4 +17,7 @@ public interface AlumnosPorCursoDao {
     List<Alumno> getAlumnosPorCurso(String query, int idCurso);
 
     List<Alumno> getIDAlumnosPorCurso(int idCurso);
+
+    int cantDeCursos(int idAlumno);
+
 }

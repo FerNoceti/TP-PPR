@@ -22,7 +22,6 @@ public class InscribirCursoPresencialController {
 
             if (idAlumno < 0 || idCurso < 0) {
                 JOptionPane.showMessageDialog(null, "Los IDs deben ser positivos");
-                return;
             } else if (alumnosPorCursoService.existeAlumnoEnCurso(idAlumno, idCurso)) {
                 JOptionPane.showMessageDialog(null, "El alumno ya está inscripto en el curso");
             } else if (alumnosPorCursoService.getNumAlumnosEnCurso(idCurso) >= 15) {
@@ -30,8 +29,14 @@ public class InscribirCursoPresencialController {
             } else {
                 boolean agregado = alumnosPorCursoService.addAlumnoACursoPresencial(idAlumno, idCurso);
 
+                int descuento = alumnosPorCursoService.descuentoPorCantidadDeCursos(idCurso);
+                System.out.printf("Descuento: %d\n", descuento);
+
                 if (agregado) {
                     JOptionPane.showMessageDialog(null, "Alumno agregado al curso");
+                    if (descuento > 0) {
+                        JOptionPane.showMessageDialog(null, "El alumno tiene un descuento del " + descuento + "%");
+                    }
                 } else {
                     JOptionPane.showMessageDialog(null, "No se pudo agregar al alumno al curso");
                 }

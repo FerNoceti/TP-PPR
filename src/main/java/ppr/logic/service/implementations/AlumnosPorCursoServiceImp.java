@@ -63,4 +63,41 @@ public class AlumnosPorCursoServiceImp implements AlumnosPorCursoService {
     public int getNumAlumnosEnCurso(int idCurso) {
         return alumnosPorCursoDao.getNumAlumnosEnCurso(idCurso);
     }
+
+    @Override
+    public int descuentoPorCantidadDeCursos(int idCurso) {
+        int cantidadDeCursos = alumnosPorCursoDao.cantDeCursos(idCurso);
+
+        return 20 * cantidadDeCursos;
+    }
+
+    @Override
+    public int alumnoEnOtrosCursos(int idAlumno) {
+        return 0;
+    }
+
+    @Override
+    public boolean addAlumnoACursoVirtual(int idAlumno, int idCurso) {
+        return false;
+    }
+
+    @Override
+    public boolean existeAlumnoEnCursoVirtual(int idAlumno, int idCurso) {
+        return false;
+    }
+
+    @Override
+    public boolean deleteAlumnoDeCursoVirtual(int idAlumno, int idCurso) {
+        return false;
+    }
+
+    @Override
+    public List<Alumno> getAlumnosPorCursoVirtual(int idCurso) {
+        return null;
+    }
+
+    @Override
+    public List<Integer> getIdAlumnosPorCursoVirtual(int idCurso) {
+        return null;
+    }
 }

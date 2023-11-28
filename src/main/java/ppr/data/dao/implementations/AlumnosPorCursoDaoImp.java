@@ -123,4 +123,35 @@ public class AlumnosPorCursoDaoImp implements AlumnosPorCursoDao {
     public List<Alumno> getIDAlumnosPorCurso(int idCurso) {
         return null;
     }
+
+    @Override
+    public int cantDeCursos(int idAlumno) {
+        String query = "SELECT COUNT(*) FROM alumnos_cursos WHERE alumnoid = ?";
+
+        try {
+            Connection connection = conexionDB.getConnection();
+
+            PreparedStatement statement = connection.prepareStatement(query);
+            statement.setInt(1, idAlumno);
+
+            ResultSet resultSet = statement.executeQuery();
+
+            if (resultSet.next()) {
+                int count = resultSet.getInt(1);
+                resultSet.close();
+                statement.close();
+                conexionDB.closeConnection();
+                return count;
+            } else {
+                resultSet.close();
+                statement.close();
+                conexionDB.closeConnection();
+                return 0;
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+            conexionDB.closeConnection();
+        }
+        return 0;
+    }
 }
