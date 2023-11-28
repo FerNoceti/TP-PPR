@@ -11,7 +11,7 @@ public class ConexionDB {
 
     String jdbcUrl = "jdbc:postgresql://localhost:5432/tp-ppr";
     String username = "postgres";
-    String password = "clona";
+    String password = "siglo21";
 
     public ConexionDB() {
         try {

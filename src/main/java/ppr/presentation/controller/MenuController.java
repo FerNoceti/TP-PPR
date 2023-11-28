@@ -56,5 +56,16 @@ public class MenuController {
             frame.pack();
             frame.setVisible(true);
         });
+
+        view.getVentanaCursosOnlineButton().addActionListener(e -> {
+            CursoVirtualView cursoVirtualView = new CursoVirtualView();
+            CursoVirtualController cursoVirtualController = new CursoVirtualController(cursoVirtualView);
+
+            JFrame frame = new JFrame("Curso Virtual");
+            frame.setContentPane(cursoVirtualView.getCursoVirtualPanel());
+            frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+            frame.pack();
+            frame.setVisible(true);
+        });
     }
 }
