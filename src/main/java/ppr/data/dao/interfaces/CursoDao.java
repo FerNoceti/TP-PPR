@@ -14,5 +14,4 @@ public interface CursoDao {
 
     int obtenerUltimoIdCurso();
 
-    char obtenerUltimoCodigoCurso();
 }

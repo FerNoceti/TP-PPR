@@ -13,7 +13,7 @@ public class CursoPresencial extends Curso {
         this.hora = hora;
     }
 
-    public CursoPresencial(int idCurso, String nombre, Character codigo, int idDocente, String descripcion, String objetivo, String dirigido, int precio, int idCursoPresencial, int aula, String fecha, String hora) {
+    public CursoPresencial(int idCurso, String nombre, String codigo, int idDocente, String descripcion, String objetivo, String dirigido, int precio, int idCursoPresencial, int aula, String fecha, String hora) {
         super(idCurso, nombre, codigo, idDocente, descripcion, objetivo, dirigido, precio);
         this.idCursoPresencial = idCursoPresencial;
         this.aula = aula;

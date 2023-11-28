@@ -36,12 +36,16 @@ public class CursoPresencialServiceImplementation implements CursoPresencialServ
 
     @Override
     public CursoPresencial getCursoPresencial(int id) {
-        return null;
+        return cursoPresencialDao.getCursoPresencial(id);
     }
 
     @Override
     public void addCursoPresencial(CursoPresencial cursoPresencial) {
-
+        if (cursoPresencialDao.addCursoPresencial(cursoPresencial)) {
+            System.out.println("Curso presencial agregado correctamente");
+        } else {
+            System.out.println("Error al agregar curso presencial");
+        }
     }
 
     @Override
@@ -55,8 +59,13 @@ public class CursoPresencialServiceImplementation implements CursoPresencialServ
     }
 
     @Override
+    public int obtenerUltimoIdCurso() {
+        return cursoPresencialDao.obtenerUltimoIdCurso();
+    }
+
+    @Override
     public int obtenerUltimoIdCursoPresencial() {
-        return 0;
+        return cursoPresencialDao.obtenerUltimoIdCursoPresencial();
     }
 
     @Override

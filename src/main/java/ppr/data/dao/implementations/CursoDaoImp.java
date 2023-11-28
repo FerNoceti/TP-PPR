@@ -21,7 +21,7 @@ public class CursoDaoImp implements CursoDao {
     @Override
     public boolean addCurso(Curso curso) {
 
-        String query = "INSERT INTO public.cursos(id_curso, nombre, id_docente, descripcion, objetivo, dirigido, precio) VALUES (?, ?, ?, ?, ?, ?, ?);";
+        String query = "INSERT INTO public.cursos(id_curso, nombre, id_docente, descripcion, objetivo, \" dirigido\", precio, codigo) VALUES (?, ?, ?, ?, ?, ?, ?, ?);";
 
         try {
             Connection connection = conexionDB.getConnection();
@@ -34,6 +34,7 @@ public class CursoDaoImp implements CursoDao {
             statement.setString(5, curso.getObjetivo());
             statement.setString(6, curso.getDirigido());
             statement.setInt(7, curso.getPrecio());
+            statement.setString(8, curso.getCodigo());
 
             int affectedRows = statement.executeUpdate();
 
@@ -92,6 +93,26 @@ public class CursoDaoImp implements CursoDao {
 
     @Override
     public boolean existeCurso(int idCurso) {
+        String query = "SELECT * FROM cursos WHERE id_curso = ?";
+
+        try {
+            Connection connection = conexionDB.getConnection();
+
+            PreparedStatement statement = connection.prepareStatement(query);
+            statement.setInt(1, idCurso);
+
+            ResultSet resultSet = statement.executeQuery();
+
+            if (resultSet.next()) {
+                statement.close();
+                conexionDB.closeConnection();
+                return true;
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally {
+            conexionDB.closeConnection();
+        }
         return false;
     }
 
@@ -124,11 +145,6 @@ public class CursoDaoImp implements CursoDao {
             e.printStackTrace();
             conexionDB.closeConnection();
         }
-        return 0;
-    }
-
-    @Override
-    public char obtenerUltimoCodigoCurso() {
         return 0;
     }
 }

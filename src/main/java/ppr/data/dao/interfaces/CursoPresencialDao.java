@@ -16,4 +16,6 @@ public interface CursoPresencialDao extends CursoDao {
     boolean deleteCursoPresencial(int id);
 
     boolean existeCursoPresencial(int idCurso);
+
+    int obtenerUltimoIdCursoPresencial();
 }

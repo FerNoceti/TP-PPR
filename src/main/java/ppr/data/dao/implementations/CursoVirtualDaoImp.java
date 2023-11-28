@@ -34,7 +34,7 @@ public class CursoVirtualDaoImp extends CursoDaoImp implements CursoVirtualDao {
 
                 cursoVirtual.setIdCurso(rs.getInt("id_curso"));
                 cursoVirtual.setNombre(rs.getString("nombre"));
-                cursoVirtual.setCodigo(rs.getString("codigo").charAt(0));
+                cursoVirtual.setCodigo(rs.getString("codigo"));
                 cursoVirtual.setIdDocente(rs.getInt("id_docente"));
                 cursoVirtual.setDescripcion(rs.getString("descripcion"));
                 cursoVirtual.setObjetivo(rs.getString("objetivo"));

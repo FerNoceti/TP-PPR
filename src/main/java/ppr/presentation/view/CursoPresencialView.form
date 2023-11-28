@@ -196,7 +196,7 @@
           </grid>
         </constraints>
         <properties>
-          <editable value="false"/>
+          <editable value="true"/>
           <text value=""/>
         </properties>
       </component>
@@ -272,7 +272,7 @@
         </constraints>
         <properties/>
       </component>
-      <component id="63bfb" class="javax.swing.JTextField" binding="textFieldcodigo">
+      <component id="63bfb" class="javax.swing.JTextField" binding="textFieldCodigo">
         <constraints>
           <grid row="10" column="1" row-span="1" col-span="3" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
             <preferred-size width="150" height="-1"/>

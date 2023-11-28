@@ -21,7 +21,7 @@ public class CursoPresencialView {
     private JTextField textFieldObjetivo;
     private JTextField textFieldDirigido;
     private JTextField textFieldPrecio;
-    private JTextField textFieldcodigo;
+    private JTextField textFieldCodigo;
     private JPanel cursoPresencialPanel;
 
     public JTextField getTextFieldBuscarID() {
@@ -161,11 +161,11 @@ public class CursoPresencialView {
     }
 
     public JTextField getTextFieldcodigo() {
-        return textFieldcodigo;
+        return textFieldCodigo;
     }
 
     public void setTextFieldcodigo(JTextField textFieldcodigo) {
-        this.textFieldcodigo = textFieldcodigo;
+        this.textFieldCodigo = textFieldcodigo;
     }
 
     public Container getCursoPresencialPanel() {

@@ -15,6 +15,8 @@ public interface CursoPresencialService {
 
     void deleteCursoPresencial(int idCursoPresencial);
 
+    int obtenerUltimoIdCurso();
+
     int obtenerUltimoIdCursoPresencial();
 
     boolean existeCursoPresencial(int idCursoPresencial);
