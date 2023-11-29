@@ -1,6 +1,6 @@
 package ppr.presentation.controller;
 
-import ppr.logic.service.implementations.CursoPresencialServiceImplementation;
+import ppr.service.implementations.CursoPresencialServiceImplementation;
 import ppr.model.CursoPresencial;
 import ppr.presentation.view.CursoPresencialView;
 

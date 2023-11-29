@@ -1,6 +1,6 @@
 package ppr.presentation.controller;
 
-import ppr.logic.service.implementations.AlumnoServiceImp;
+import ppr.service.implementations.AlumnoServiceImp;
 import ppr.model.Alumno;
 import ppr.presentation.view.AlumnoView;
 

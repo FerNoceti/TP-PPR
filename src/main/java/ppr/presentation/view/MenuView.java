@@ -7,7 +7,7 @@ public class MenuView {
     private JButton ventanaDocentesButton;
     private JButton ventanaCursosPresencialesButton;
     private JButton ventanaCursosOnlineButton;
-    private JButton consultasButton;
+    private JButton consultasCumpleButton;
     private JPanel menuPanel;
     private JButton inscribirCursoPresencialButton;
 
@@ -51,11 +51,11 @@ public class MenuView {
     }
 
     public JButton getConsultasButton() {
-        return consultasButton;
+        return consultasCumpleButton;
     }
 
     public void setConsultasButton(JButton consultasButton) {
-        this.consultasButton = consultasButton;
+        this.consultasCumpleButton = consultasButton;
     }
 
     public void setVisible(boolean b) {

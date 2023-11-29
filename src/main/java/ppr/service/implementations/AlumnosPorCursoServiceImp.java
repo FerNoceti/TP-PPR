@@ -1,8 +1,8 @@
-package ppr.logic.service.implementations;
+package ppr.service.implementations;
 
 import ppr.data.dao.implementations.AlumnosPorCursoDaoImp;
 import ppr.data.dao.interfaces.AlumnosPorCursoDao;
-import ppr.logic.service.interfaces.AlumnosPorCursoService;
+import ppr.service.interfaces.AlumnosPorCursoService;
 import ppr.model.Alumno;
 
 import java.util.List;
