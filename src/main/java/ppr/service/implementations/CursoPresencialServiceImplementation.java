@@ -2,8 +2,8 @@ package ppr.service.implementations;
 
 import ppr.data.dao.implementations.CursoPresencialDaoImp;
 import ppr.data.dao.interfaces.CursoPresencialDao;
-import ppr.service.interfaces.CursoPresencialService;
 import ppr.model.CursoPresencial;
+import ppr.service.interfaces.CursoPresencialService;
 
 import java.util.List;
 
@@ -12,6 +12,7 @@ public class CursoPresencialServiceImplementation implements CursoPresencialServ
     private static CursoPresencialServiceImplementation instance;
 
     private final CursoPresencialDao cursoPresencialDao;
+
     private CursoPresencialServiceImplementation() {
         super();
         this.cursoPresencialDao = new CursoPresencialDaoImp();

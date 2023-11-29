@@ -55,7 +55,6 @@ public class PersonaDaoImp implements PersonaDao {
     }
 
 
-
     @Override
     public boolean addPersona(Persona persona) {
         String query = "INSERT INTO personas (id_persona, dni, nombre, apellido, fecha_nacimiento) VALUES (?, ?, ?, ?, ?) RETURNING id_persona";

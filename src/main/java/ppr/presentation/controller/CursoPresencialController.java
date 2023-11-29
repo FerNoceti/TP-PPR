@@ -1,8 +1,8 @@
 package ppr.presentation.controller;
 
-import ppr.service.implementations.CursoPresencialServiceImplementation;
 import ppr.model.CursoPresencial;
 import ppr.presentation.view.CursoPresencialView;
+import ppr.service.implementations.CursoPresencialServiceImplementation;
 
 import javax.swing.table.DefaultTableModel;
 import java.awt.event.MouseAdapter;
@@ -11,9 +11,8 @@ import java.util.List;
 
 public class CursoPresencialController {
 
-    CursoPresencialServiceImplementation cursoPresencialServiceImplementation = CursoPresencialServiceImplementation.getInstance();
-
     private final CursoPresencialView view;
+    CursoPresencialServiceImplementation cursoPresencialServiceImplementation = CursoPresencialServiceImplementation.getInstance();
 
     public CursoPresencialController(CursoPresencialView view) {
         this.view = view;
@@ -58,7 +57,7 @@ public class CursoPresencialController {
 
     private void cargarUltimoIdCurso() {
         view.getTextFieldIdCurso().setText(String.valueOf(cursoPresencialServiceImplementation.obtenerUltimoIdCurso() + 1));
-        
+
     }
 
     private void cargarTablaCursosPresenciales() {
@@ -114,7 +113,7 @@ public class CursoPresencialController {
         cursoPresencialServiceImplementation.addCursoPresencial(cursoPresencial);
     }
 
-    private void buscarCursoPresencial(int idCursoPresencial){
+    private void buscarCursoPresencial(int idCursoPresencial) {
         CursoPresencial cursoPresencial = cursoPresencialServiceImplementation.getCursoPresencial(idCursoPresencial);
 
         view.getTextFieldIdCurso().setText(String.valueOf(cursoPresencial.getIdCurso()));

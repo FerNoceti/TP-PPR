@@ -1,7 +1,6 @@
 package ppr.service.implementations;
 
 import ppr.data.dao.implementations.PersonaDaoImp;
-import ppr.data.dao.interfaces.AlumnoDao;
 import ppr.data.dao.interfaces.PersonaDao;
 import ppr.model.Alumno;
 import ppr.model.Curso;

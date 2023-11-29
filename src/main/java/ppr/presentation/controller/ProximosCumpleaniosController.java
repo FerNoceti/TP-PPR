@@ -9,9 +9,8 @@ import java.util.List;
 
 public class ProximosCumpleaniosController {
 
-    ConsultasSerivceImp consultasSerivceImp = ConsultasSerivceImp.getInstance();
-
     private final ProximosCumpleaniosView view;
+    ConsultasSerivceImp consultasSerivceImp = ConsultasSerivceImp.getInstance();
 
     public ProximosCumpleaniosController(ProximosCumpleaniosView view) {
         this.view = view;

@@ -1,14 +1,14 @@
 package ppr.presentation.controller;
 
+import ppr.presentation.view.InscripcionCursoPresencialView;
 import ppr.service.implementations.AlumnosPorCursoServiceImp;
 import ppr.service.interfaces.AlumnosPorCursoService;
-import ppr.presentation.view.InscripcionCursoPresencialView;
 
 import javax.swing.*;
 
 public class InscribirCursoPresencialController {
-    AlumnosPorCursoService alumnosPorCursoService = AlumnosPorCursoServiceImp.getInstance();
     private final InscripcionCursoPresencialView view;
+    AlumnosPorCursoService alumnosPorCursoService = AlumnosPorCursoServiceImp.getInstance();
 
     public InscribirCursoPresencialController(InscripcionCursoPresencialView view) {
         this.view = view;

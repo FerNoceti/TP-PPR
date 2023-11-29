@@ -1,8 +1,8 @@
 package ppr.presentation.controller;
 
-import ppr.service.implementations.AlumnoServiceImp;
 import ppr.model.Alumno;
 import ppr.presentation.view.AlumnoView;
+import ppr.service.implementations.AlumnoServiceImp;
 
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
@@ -12,8 +12,8 @@ import java.sql.Timestamp;
 import java.util.List;
 
 public class AlumnoController {
-    AlumnoServiceImp alumnoServiceImp = AlumnoServiceImp.getInstance();
     private final AlumnoView view;
+    AlumnoServiceImp alumnoServiceImp = AlumnoServiceImp.getInstance();
 
     public AlumnoController(AlumnoView view) {
         this.view = view;

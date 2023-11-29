@@ -1,16 +1,14 @@
 package ppr.presentation.controller;
 
-import ppr.logic.service.implementations.CursoPresencialServiceImplementation;
-import ppr.logic.service.implementations.CursoVirtualServiceImp;
 import ppr.presentation.view.CursoVirtualView;
+import ppr.service.implementations.CursoVirtualServiceImp;
 
 public class CursoVirtualController {
 
+    private final CursoVirtualView view;
     CursoVirtualServiceImp cursoVirtualServiceImp = CursoVirtualServiceImp.getInstance();
 
-    private final CursoVirtualView view;
-
-    public CursoVirtualController(CursoVirtualView view){
+    public CursoVirtualController(CursoVirtualView view) {
         this.view = view;
     }
 }

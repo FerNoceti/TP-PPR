@@ -1,8 +1,8 @@
 package ppr.presentation.controller;
 
-import ppr.service.implementations.DocenteServiceImp;
 import ppr.model.Docente;
 import ppr.presentation.view.DocenteView;
+import ppr.service.implementations.DocenteServiceImp;
 
 import javax.swing.table.DefaultTableModel;
 import java.awt.event.MouseAdapter;
@@ -11,8 +11,8 @@ import java.sql.Timestamp;
 import java.util.List;
 
 public class DocenteController {
-    DocenteServiceImp docenteServiceImp = DocenteServiceImp.getInstance();
     private final DocenteView view;
+    DocenteServiceImp docenteServiceImp = DocenteServiceImp.getInstance();
 
     public DocenteController(DocenteView view) {
         this.view = view;

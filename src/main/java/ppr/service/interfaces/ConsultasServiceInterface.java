@@ -7,7 +7,9 @@ import ppr.model.Persona;
 import java.util.List;
 
 public interface ConsultasServiceInterface {
-    public Curso getCursoMasAlumnos();
-    public List<Alumno> getAlumnosConDescuento();
-    public List<Persona> getCumpleaniosProximos();
+    Curso getCursoMasAlumnos();
+
+    List<Alumno> getAlumnosConDescuento();
+
+    List<Persona> getCumpleaniosProximos();
 }

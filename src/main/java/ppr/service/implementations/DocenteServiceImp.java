@@ -2,8 +2,8 @@ package ppr.service.implementations;
 
 import ppr.data.dao.implementations.DocenteDaoImp;
 import ppr.data.dao.interfaces.DocenteDao;
-import ppr.service.interfaces.DocenteService;
 import ppr.model.Docente;
+import ppr.service.interfaces.DocenteService;
 
 import java.util.List;
 

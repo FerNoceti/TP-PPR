@@ -4,15 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="80b44838-0ec4-4128-9e68-8cfbf2139ea1" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ppr/data/database/ConexionDB.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ppr/data/database/ConexionDB.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ppr/presentation/controller/CursoVirtualController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ppr/presentation/controller/CursoVirtualController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ppr/presentation/controller/MenuController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ppr/presentation/controller/MenuController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ppr/presentation/view/CursoVirtualView.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ppr/presentation/view/CursoVirtualView.form" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ppr/presentation/view/CursoVirtualView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ppr/presentation/view/CursoVirtualView.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ppr/presentation/view/MenuView.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ppr/presentation/view/MenuView.form" afterDir="false" />
-    </list>
+    <list default="true" id="80b44838-0ec4-4128-9e68-8cfbf2139ea1" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -37,14 +29,14 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "UI_DESIGNER_EDITOR_MODE.UIDesignerToolWindowManager.SHOW": "true",
-    "git-widget-placeholder": "master"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;UI_DESIGNER_EDITOR_MODE.UIDesignerToolWindowManager.SHOW&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;
   }
-}]]></component>
+}</component>
   <component name="RunManager">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="ppr.main.Main" />
