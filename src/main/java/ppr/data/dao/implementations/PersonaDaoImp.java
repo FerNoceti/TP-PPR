@@ -8,6 +8,8 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
 public class PersonaDaoImp implements PersonaDao {
 
@@ -17,6 +19,42 @@ public class PersonaDaoImp implements PersonaDao {
         super();
         this.conexionDB = new ConexionDB();
     }
+
+    @Override
+    public List<Persona> getPersonas() {
+        String query = "SELECT * FROM personas";
+        List<Persona> personas = new ArrayList<>();
+
+        try {
+            Connection connection = conexionDB.getConnection();
+
+            PreparedStatement statement = connection.prepareStatement(query);
+
+            ResultSet rs = statement.executeQuery();
+
+            while (rs.next()) {
+                Persona persona = new Persona();
+                persona.setIdPersona(rs.getInt("id_persona"));
+                persona.setDni(rs.getInt("dni"));
+                persona.setNombre(rs.getString("nombre"));
+                persona.setApellido(rs.getString("apellido"));
+                persona.setFechaNacimiento(rs.getTimestamp("fecha_nacimiento"));
+
+                personas.add(persona);
+            }
+
+            rs.close();
+            statement.close();
+            conexionDB.closeConnection();
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+            conexionDB.closeConnection();
+        }
+        return personas;
+    }
+
+
 
     @Override
     public boolean addPersona(Persona persona) {

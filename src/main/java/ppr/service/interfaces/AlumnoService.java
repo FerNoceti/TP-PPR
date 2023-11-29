@@ -1,4 +1,4 @@
-package ppr.logic.service.interfaces;
+package ppr.service.interfaces;
 
 import ppr.model.Alumno;
 

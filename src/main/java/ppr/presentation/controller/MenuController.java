@@ -56,5 +56,17 @@ public class MenuController {
             frame.pack();
             frame.setVisible(true);
         });
+
+        view.getConsultasButton().addActionListener(e -> {
+            ProximosCumpleaniosView consultasView = new ProximosCumpleaniosView();
+            ProximosCumpleaniosController consultasController = new ProximosCumpleaniosController(consultasView);
+
+            JFrame frame = new JFrame("Proximos cumpleaños");
+            frame.setContentPane(consultasView.getPanelProximosCumpleanios());
+
+            frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+            frame.pack();
+            frame.setVisible(true);
+        });
     }
 }

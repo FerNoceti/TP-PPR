@@ -1,7 +1,7 @@
 package ppr.presentation.controller;
 
-import ppr.logic.service.implementations.AlumnosPorCursoServiceImp;
-import ppr.logic.service.interfaces.AlumnosPorCursoService;
+import ppr.service.implementations.AlumnosPorCursoServiceImp;
+import ppr.service.interfaces.AlumnosPorCursoService;
 import ppr.presentation.view.InscripcionCursoPresencialView;
 
 import javax.swing.*;
@@ -35,7 +35,7 @@ public class InscribirCursoPresencialController {
                 if (agregado) {
                     JOptionPane.showMessageDialog(null, "Alumno agregado al curso");
                     if (descuento > 0) {
-                        JOptionPane.showMessageDialog(null, "El alumno tiene un descuento del " + descuento + "%");
+                        JOptionPane.showMessageDialog(null, "El alumno tiene un descuento del " + descuento + "% en su próxima inscripción");
                     }
                 } else {
                     JOptionPane.showMessageDialog(null, "No se pudo agregar al alumno al curso");

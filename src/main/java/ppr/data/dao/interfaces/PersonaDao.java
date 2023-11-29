@@ -2,7 +2,11 @@ package ppr.data.dao.interfaces;
 
 import ppr.model.Persona;
 
+import java.util.List;
+
 public interface PersonaDao {
+
+    List<Persona> getPersonas();
 
     boolean addPersona(Persona persona);
 

@@ -2,6 +2,8 @@ package ppr.model;
 
 import java.sql.Timestamp;
 import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.temporal.ChronoUnit;
 
 public class Persona {
     private int idPersona;
@@ -84,5 +86,29 @@ public class Persona {
                 ", fechaNacimiento=" + fechaNacimiento +
                 ", edad=" + calcularEdad() +
                 '}';
+    }
+
+    public boolean cumpleEnUnaSemana() {
+        LocalDate fechaActual = LocalDate.now();
+
+        LocalDateTime localDateTime = fechaNacimiento.toLocalDateTime();
+
+        LocalDate fechaNacimientoLocal = localDateTime.toLocalDate();
+
+        long daysUntilBirthday = ChronoUnit.DAYS.between(fechaActual, fechaNacimientoLocal);
+
+        return daysUntilBirthday > 0 && daysUntilBirthday <= 7;
+    }
+
+    public int calcularDiasRestantes() {
+        LocalDate fechaActual = LocalDate.now();
+
+        LocalDateTime localDateTime = fechaNacimiento.toLocalDateTime();
+
+        LocalDate fechaNacimientoLocal = localDateTime.toLocalDate();
+
+        long daysUntilBirthday = ChronoUnit.DAYS.between(fechaActual, fechaNacimientoLocal);
+
+        return (int) daysUntilBirthday;
     }
 }

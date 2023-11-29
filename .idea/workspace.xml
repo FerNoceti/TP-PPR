@@ -5,11 +5,36 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="80b44838-0ec4-4128-9e68-8cfbf2139ea1" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/src/main/java/ppr/data/dao/implementations/AlumnosPorCursoDaoImp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ppr/data/dao/implementations/AlumnosPorCursoDaoImp.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ppr/data/dao/interfaces/AlumnosPorCursoDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ppr/data/dao/interfaces/AlumnosPorCursoDao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ppr/logic/service/implementations/AlumnosPorCursoServiceImp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ppr/logic/service/implementations/AlumnosPorCursoServiceImp.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ppr/logic/service/interfaces/AlumnosPorCursoService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ppr/logic/service/interfaces/AlumnosPorCursoService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/ppr/presentation/controller/ProximosCumpleaniosController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/ppr/presentation/view/ProximosCumpleaniosView.form" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/ppr/presentation/view/ProximosCumpleaniosView.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/ppr/service/implementations/ConsultasSerivceImp.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/ppr/service/interfaces/ConsultasServiceInterface.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ppr/data/dao/implementations/ConsultasDaoImp.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ppr/data/dao/implementations/PersonaDaoImp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ppr/data/dao/implementations/PersonaDaoImp.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ppr/data/dao/interfaces/ConsultasDao.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ppr/data/dao/interfaces/PersonaDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ppr/data/dao/interfaces/PersonaDao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ppr/logic/service/implementations/AlumnoServiceImp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ppr/service/implementations/AlumnoServiceImp.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ppr/logic/service/implementations/AlumnosPorCursoServiceImp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ppr/service/implementations/AlumnosPorCursoServiceImp.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ppr/logic/service/implementations/CursoPresencialServiceImplementation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ppr/service/implementations/CursoPresencialServiceImplementation.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ppr/logic/service/implementations/CursoVirtualServiceImp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ppr/service/implementations/CursoVirtualServiceImp.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ppr/logic/service/implementations/DocenteServiceImp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ppr/service/implementations/DocenteServiceImp.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ppr/logic/service/interfaces/AlumnoService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ppr/service/interfaces/AlumnoService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ppr/logic/service/interfaces/AlumnosPorCursoService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ppr/service/interfaces/AlumnosPorCursoService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ppr/logic/service/interfaces/CursoPresencialService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ppr/service/interfaces/CursoPresencialService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ppr/logic/service/interfaces/CursoVirtualService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ppr/service/interfaces/CursoVirtualService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ppr/logic/service/interfaces/DocenteService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ppr/service/interfaces/DocenteService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ppr/model/Persona.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ppr/model/Persona.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ppr/presentation/controller/AlumnoController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ppr/presentation/controller/AlumnoController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ppr/presentation/controller/CursoPresencialController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ppr/presentation/controller/CursoPresencialController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ppr/presentation/controller/DocenteController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ppr/presentation/controller/DocenteController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/ppr/presentation/controller/InscribirCursoPresencialController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ppr/presentation/controller/InscribirCursoPresencialController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ppr/presentation/controller/MenuController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ppr/presentation/controller/MenuController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ppr/presentation/view/MenuView.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ppr/presentation/view/MenuView.form" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ppr/presentation/view/MenuView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ppr/presentation/view/MenuView.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -24,14 +49,35 @@
       </list>
     </option>
   </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectColorInfo"><![CDATA[{
+  "customColor": "",
+  "associatedIndex": 8
+}]]></component>
+  <component name="ProjectId" id="2YrujL2meIBTPG0voAg92VNjGrM" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <ConfirmationsSetting value="2" id="Add" />
   </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+    <option name="showMembers" value="true" />
+  </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "git-widget-placeholder": "master"
   }
 }]]></component>
+  <component name="RecentsManager">
+    <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="ppr" />
+    </key>
+  </component>
   <component name="RunManager">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="ppr.main.Main" />
@@ -52,7 +98,15 @@
       </list>
     </recent_temporary>
   </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="80b44838-0ec4-4128-9e68-8cfbf2139ea1" name="Changes" comment="" />
+      <created>1701296160247</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1701296160247</updated>
+    </task>
     <servers />
   </component>
 </project>

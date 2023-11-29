@@ -1,8 +1,8 @@
-package ppr.logic.service.implementations;
+package ppr.service.implementations;
 
 import ppr.data.dao.implementations.CursoVirtualDaoImp;
 import ppr.data.dao.interfaces.CursoVirtualDao;
-import ppr.logic.service.interfaces.CursoVirtualService;
+import ppr.service.interfaces.CursoVirtualService;
 import ppr.model.CursoVirtual;
 
 import java.util.List;
